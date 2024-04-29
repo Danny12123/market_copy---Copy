@@ -7,13 +7,6 @@ import product2 from "../../../../../public/images/products/clothes-2.jpg";
 import product3 from "../../../../../public/images/products/clothes-3.jpg";
 
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { CarouselProduct } from "../../ProductHolder/CarouselProduct";
 
 const products = [product1, product2, product3, product1, product2, product3];

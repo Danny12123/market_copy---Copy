@@ -32,7 +32,7 @@ const NavigationBar = () => {
           <div className="w-[40%] hidden  rounded-lg md:flex items-center">
             <div>
               <Select className=" focus:ring-0 focus:ring-transparent focus:ring-offset-0">
-                <SelectTrigger className="w-[200px]">
+                <SelectTrigger className="w-[200px] focus:ring-0 focus:ring-transparent focus:ring-offset-0">
                   <SelectValue placeholder="Select a category" />
                 </SelectTrigger>
                 <SelectContent>
@@ -158,15 +158,45 @@ const NavigationBar = () => {
       </div>
       <div className="w-full px-3 py-2 md:hidden  rounded-lg flex justify-center items-center">
         <div>
-          <SearchSelect defaultValue="1">
-            <SearchSelectItem value="1">Option One</SearchSelectItem>
-            <SearchSelectItem value="2">Option Two</SearchSelectItem>
-            <SearchSelectItem value="3">Option Three</SearchSelectItem>
-          </SearchSelect>
+          <Select className="">
+            <SelectTrigger className="w-[120px] px-[8px] focus:ring-0 focus:ring-transparent focus:ring-offset-0">
+              <SelectValue placeholder="Select a category" />
+            </SelectTrigger>
+            <SelectContent className="px-[8px]">
+              <SelectGroup>
+                <SelectLabel className="pl-[5px]">North America</SelectLabel>
+                <SelectItem className="pl-[5px]" value="est">
+                  Eastern Standard Time (EST)
+                </SelectItem>
+                <SelectItem className="pl-[5px]" value="cst">
+                  Central Standard Time (CST)
+                </SelectItem>
+                <SelectItem className="pl-[5px]" value="mst">
+                  Mountain Standard Time (MST)
+                </SelectItem>
+                <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
+                <SelectItem value="akst">
+                  Alaska Standard Time (AKST)
+                </SelectItem>
+                <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
+              </SelectGroup>
+              <SelectGroup>
+                <SelectLabel>Europe & Africa</SelectLabel>
+                <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
+                <SelectItem value="cet">Central European Time (CET)</SelectItem>
+                <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
+                <SelectItem value="west">
+                  Western European Summer Time (WEST)
+                </SelectItem>
+                <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
+                <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
         <div className="w-full ml-1 relative">
-          <TextInput
-            className="w-full"
+          <Input
+            className="w-full focus:ring-0 focus:ring-transparent focus:ring-offset-0"
             placeholder="Search for any product..."
           />
           {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-slate-50 absolute top-10 left-0 z-[1000] shadow rounded-md p-2">

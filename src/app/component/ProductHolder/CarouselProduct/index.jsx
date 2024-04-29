@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,10 +9,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Product from "../../../../../public/images/products/jacket-2.jpg";
+import Image from "next/image";
 
 export function CarouselProduct() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true })
   );
   return (
     <Carousel plugins={[plugin.current]} className="w-full ">
@@ -24,7 +27,8 @@ export function CarouselProduct() {
             <div className="p-1">
               <Card className="w-full">
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-2xl font-semibold">{index + 1}</span>
+                  {/* <span className="text-2xl font-semibold">{index + 1}</span> */}
+                  <Image src={Product} />
                 </CardContent>
               </Card>
             </div>
