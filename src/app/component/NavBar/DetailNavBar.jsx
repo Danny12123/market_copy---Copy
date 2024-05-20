@@ -2,7 +2,7 @@ import React from "react";
 
 const DetailNavBar = () => {
   return (
-    <div className="w-full py-2 px-5 bg-white block md:flex justify-between items-center">
+    <div className="w-full py-2 px-5 dark:bg-slate-800 bg-white block md:flex justify-between items-center">
       <div className="flex items-center">
         <div className="w-[40px] h-[40px] rounded-full bg-slate-500 mr-2"></div>
         <div>

@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "./component/NavBar/NavigationBar";
-
+import { ThemeProvider } from "./component/Theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,8 +13,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavigationBar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavigationBar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

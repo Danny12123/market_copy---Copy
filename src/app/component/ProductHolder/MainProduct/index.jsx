@@ -11,7 +11,7 @@ const MainProduct = () => {
   const [isLiked, setIsLiked] = useState(false);
   const handelLike = () => setIsLiked(!isLiked);
   return (
-    <div className="w-full h-auto hover:bg-[#f5f5f5] transition-all ease-in delay-75 rounded hover:shadow p-2 cursor-pointer">
+    <div className="w-full h-auto hover:dark:bg-slate-900 transition-all ease-in delay-75 rounded hover:shadow p-2 cursor-pointer">
       <div className="w-full h-[17vh] md:h-[18vh] 2xl:h-[14vh] rounded-lg relative border border-[#eee]">
         <Link href="/detail/">
           <Image src={hero1} className="w-full h-full rounded-lg" />
@@ -30,7 +30,7 @@ const MainProduct = () => {
       </div>
       <Link href="detail/">
         <div className="flex justify-between items-center py-1">
-          <h4 className="truncate text-xs [&>span]:line-clamp-1">
+          <h4 className="truncate dark:text-gray-200 text-xs [&>span]:line-clamp-1">
             Cloth Men's short sleeved polo, business casual s
           </h4>
         </div>

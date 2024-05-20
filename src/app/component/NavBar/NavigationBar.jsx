@@ -12,19 +12,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Moon, Sun } from "lucide-react";
 import Profile from "../../../../public/images/testimonial-1.jpg";
 import logoImage from "../../../../public/images/logo/favicon.ico";
 import ArrowUp from "../.../../../../../public/images/icons/arrow-up-s-line.svg";
 import ArrowDown from "../.../../../../../public/images/icons/arrow-down-s-line.svg";
 import shopping from "../.../../../../../public/images/icons/shopping.png";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const NavigationBar = () => {
   const [navBox, setNavBox] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const { setTheme } = useTheme();
   return (
     <div className="w-full">
-      <div className="w-full py-2 bg-white shadow-sm sticky top-0 z-50 md:px-5 px-3">
+      <div className="w-full py-2 dark:bg-black bg-white shadow-sm sticky top-0 z-50 md:px-5 px-3">
         <nav className="flex justify-between items-center relative">
           <div>
             <Image src={logoImage} className="w-6" />
@@ -107,6 +117,26 @@ const NavigationBar = () => {
             </div>
           </div>
           <div className="flex items-center gap-3 cursor-pointer">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  Light
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  System
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link href="/cart">
               <div className="relative mr-3">
                 <Image src={shopping} className=" size-7 " />

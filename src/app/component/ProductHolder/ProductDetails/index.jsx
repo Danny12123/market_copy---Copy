@@ -83,8 +83,8 @@ const ProductDetails = () => {
             </div>
           </div>
           {/* product details */}
-          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded bg-[#fff] w-full h-fit">
-            <p className="text-sm text-gray-500 font-medium">
+          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] w-full h-fit">
+            <p className="text-sm text-gray-500 dark:text-gray-300 font-medium">
               Men's short sleeved polo, business casual shirt, tight
               fitting,fashionable, summer novelty, 2024
             </p>
@@ -137,22 +137,22 @@ const ProductDetails = () => {
                 <div
                   className={`min-w-[32px] cursor-pointer w-fit  p-2 h-[30px]  hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border ${
                     isSizeActive
-                      ? "border-slate-300 bg-slate-200"
-                      : "border-gray-300 bg-[#f5f5f5f5]"
+                      ? "dark:bg-slate-800 border-slate-300 bg-slate-200 hover:dark:bg-slate-900 dark:border-gray-500"
+                      : "border-gray-300 dark:border-gray-500 bg-[#f5f5f5f5] dark:bg-slate-400 hover:dark:bg-slate-900"
                   }  `}
                 >
                   <h4 className="text-sm">sm</h4>
                 </div>
-                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] bg-[#f5f5f5f5] hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border border-gray-300 ">
+                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] dark:bg-slate-800 bg-[#f5f5f5f5] hover:bg-slate-200 hover:dark:bg-slate-900 transition-all ease-in delay-75 flex justify-center items-center rounded border dark:border-gray-500 border-gray-300 ">
                   <h4 className="text-xs">lg</h4>
                 </div>
-                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] bg-[#f5f5f5f5] hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border border-gray-300 ">
+                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] dark:bg-slate-800 bg-[#f5f5f5f5] hover:bg-slate-200 hover:dark:bg-slate-900 transition-all ease-in delay-75 flex justify-center items-center rounded border dark:border-gray-500 border-gray-300 ">
                   <h4 className="text-xs">xl</h4>
                 </div>
-                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] bg-[#f5f5f5f5] hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border border-gray-300 ">
+                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] dark:bg-slate-800 bg-[#f5f5f5f5] hover:bg-slate-200 hover:dark:bg-slate-900 transition-all ease-in delay-75 flex justify-center items-center rounded border dark:border-gray-500 border-gray-300 ">
                   <h4 className="text-xs">xxl</h4>
                 </div>
-                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] bg-[#f5f5f5f5] hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border border-gray-300 ">
+                <div className="min-w-[32px] cursor-pointer w-fit p-2 h-[30px] dark:bg-slate-800 bg-[#f5f5f5f5] hover:bg-slate-200 hover:dark:bg-slate-900 transition-all ease-in delay-75 flex justify-center items-center rounded border dark:border-gray-500 border-gray-300 ">
                   <h4 className="text-xs">xxxxl</h4>
                 </div>
               </div>
@@ -162,28 +162,28 @@ const ProductDetails = () => {
               </h3>
               <div className="flex justify-between items-center gap-2 mb-3 mt-1">
                 <div className="flex items-center gap-3">
-                  <button className="px-3 py-1 border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+                  <button className="px-3 py-1 border border-gray-300 dark:border-gray-500 rounded hover:bg-slate-200 transition-all ease-in delay-75">
                     +
                   </button>
-                  <h2>20</h2>
-                  <button className="px-3 py-1 border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+                  <h2 className="text-sm">20</h2>
+                  <button className="px-3 py-1 border border-gray-300 rounded dark:border-gray-500 hover:bg-slate-200 transition-all ease-in delay-75">
                     -
                   </button>
                 </div>
-                <div className="w-fit h-auto border border-[#eee] rounded-xl p-1 flex items-center gap-2">
+                <div className="w-fit h-auto border border-[#eee] dark:border-gray-500 rounded-xl p-1 flex items-center gap-2">
                   <button
                     onClick={() => setIsDescOrSpec(1)}
                     className={`py-2 px-3  ${
-                      isDescOrSpec === 1 && "bg-[#f5f5f5]"
-                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] hover:border-gray-300`}
+                      isDescOrSpec === 1 && "bg-[#f5f5f5] dark:bg-slate-900"
+                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] dark:border-gray-500 hover:border-gray-300`}
                   >
                     Description
                   </button>
                   <button
                     onClick={() => setIsDescOrSpec(2)}
                     className={`py-2 px-3  ${
-                      isDescOrSpec === 2 && "bg-[#f5f5f5]"
-                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] hover:border-gray-300`}
+                      isDescOrSpec === 2 && "bg-[#f5f5f5] dark:bg-slate-900"
+                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] dark:border-gray-500 hover:border-gray-300`}
                   >
                     Specification
                   </button>

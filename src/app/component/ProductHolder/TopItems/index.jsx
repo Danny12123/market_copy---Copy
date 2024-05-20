@@ -11,7 +11,7 @@ const TopProductHolder = () => {
   const [isLiked, setIsLiked] = useState(false);
   const handelLike = () => setIsLiked(!isLiked);
   return (
-    <div className="w-full h-auto hover:bg-[#f5f5f5] transition-all ease-in delay-75 rounded shadow p-2 cursor-pointer">
+    <div className="w-full h-auto hover:dark:bg-slate-900 transition-all ease-in delay-75 rounded shadow p-2 cursor-pointer">
       <div className="w-full h-[17vh] md:h-[18vh] 2xl:h-[14vh] rounded relative">
         <Link href="detail/">
           <Image src={hero1} className="w-full h-full rounded" />
