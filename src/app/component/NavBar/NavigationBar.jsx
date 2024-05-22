@@ -12,19 +12,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Moon, Sun } from "lucide-react";
 import Profile from "../../../../public/images/testimonial-1.jpg";
 import logoImage from "../../../../public/images/logo/favicon.ico";
 import ArrowUp from "../.../../../../../public/images/icons/arrow-up-s-line.svg";
 import ArrowDown from "../.../../../../../public/images/icons/arrow-down-s-line.svg";
 import shopping from "../.../../../../../public/images/icons/shopping.png";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const NavigationBar = () => {
   const [navBox, setNavBox] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const { setTheme } = useTheme();
   return (
     <div className="w-full">
-      <div className="w-full py-2 bg-white shadow-sm sticky top-0 z-50 px-5">
+      <div className="w-full py-2 dark:bg-black bg-white shadow-sm sticky top-0 z-50 md:px-5 px-3">
         <nav className="flex justify-between items-center relative">
           <div>
             <Image src={logoImage} className="w-6" />
@@ -37,53 +47,57 @@ const NavigationBar = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>North America</SelectLabel>
-                    <SelectItem value="est">
+                    <SelectLabel className="text-xs">North America</SelectLabel>
+                    <SelectItem value="est" className="text-xs">
                       Eastern Standard Time (EST)
                     </SelectItem>
-                    <SelectItem value="cst">
+                    <SelectItem value="cst" className="text-xs">
                       Central Standard Time (CST)
                     </SelectItem>
-                    <SelectItem value="mst">
+                    <SelectItem value="mst" className="text-xs">
                       Mountain Standard Time (MST)
                     </SelectItem>
-                    <SelectItem value="pst">
+                    <SelectItem value="pst" className="text-xs">
                       Pacific Standard Time (PST)
                     </SelectItem>
-                    <SelectItem value="akst">
+                    <SelectItem value="akst" className="text-xs">
                       Alaska Standard Time (AKST)
                     </SelectItem>
-                    <SelectItem value="hst">
+                    <SelectItem value="hst" className="text-xs">
                       Hawaii Standard Time (HST)
                     </SelectItem>
                   </SelectGroup>
                   <SelectGroup>
-                    <SelectLabel>Europe & Africa</SelectLabel>
-                    <SelectItem value="gmt">
-                      Greenwich Mean Time (GMT)
+                    <SelectLabel className="text-xs">North America</SelectLabel>
+                    <SelectItem value="est" className="text-xs">
+                      Eastern Standard Time (EST)
                     </SelectItem>
-                    <SelectItem value="cet">
-                      Central European Time (CET)
+                    <SelectItem value="cst" className="text-xs">
+                      Central Standard Time (CST)
                     </SelectItem>
-                    <SelectItem value="eet">
-                      Eastern European Time (EET)
+                    <SelectItem value="mst" className="text-xs">
+                      Mountain Standard Time (MST)
                     </SelectItem>
-                    <SelectItem value="west">
-                      Western European Summer Time (WEST)
+                    <SelectItem value="pst" className="text-xs">
+                      Pacific Standard Time (PST)
                     </SelectItem>
-                    <SelectItem value="cat">
-                      Central Africa Time (CAT)
+                    <SelectItem value="akst" className="text-xs">
+                      Alaska Standard Time (AKST)
                     </SelectItem>
-                    <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
+                    <SelectItem value="hst" className="text-xs">
+                      Hawaii Standard Time (HST)
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
             <div className="w-full ml-1 relative">
-              <Input
-                className="w-full"
-                placeholder="Search for any product..."
-              />
+              <Link href={`/products/searched/${"sd"}`}>
+                <Input
+                  className="w-full"
+                  placeholder="Search for any product..."
+                />
+              </Link>
               {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-slate-50 absolute top-10 left-0 z-[1000] shadow rounded-md p-2">
                 <h1 className="text-sm mb-2 px-2 ">Related search</h1>
                 <hr />
@@ -97,16 +111,38 @@ const NavigationBar = () => {
                   Tops
                 </h6>
                 <h6 className="text-sm text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
-                  Tops
+                  Tops /Users/danielacquah/Desktop/projects/apple/src/app/(searchpage)/products/searched/[productName]
                 </h6>
               </div> */}
             </div>
           </div>
-          <div className="flex items-center cursor-pointer">
-            <div className="relative mr-3">
-              <Image src={shopping} className=" size-7 " />
-              <h1 className=" absolute top-0 left-5">10</h1>
-            </div>
+          <div className="flex items-center gap-3 cursor-pointer">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  Light
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  System
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Link href="/cart">
+              <div className="relative mr-3">
+                <Image src={shopping} className=" size-7 " />
+                <h1 className=" absolute top-0 left-5">10</h1>
+              </div>
+            </Link>
             <div
               onClick={() => setDropDown(!dropDown)}
               className="w-10 h-10 rounded-full object-cover shadow-md mr-1"
@@ -151,6 +187,18 @@ const NavigationBar = () => {
                 <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
                   Sell with us
                 </li>
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
+                  My orders
+                </li>
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
+                  My coins
+                </li>
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
+                  Wish list
+                </li>
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
+                  Help center
+                </li>
               </ul>
             </div>
           )}
@@ -164,41 +212,57 @@ const NavigationBar = () => {
             </SelectTrigger>
             <SelectContent className="px-[8px]">
               <SelectGroup>
-                <SelectLabel className="pl-[5px]">North America</SelectLabel>
-                <SelectItem className="pl-[5px]" value="est">
+                <SelectLabel className="text-xs">North America</SelectLabel>
+                <SelectItem value="est" className="text-xs">
                   Eastern Standard Time (EST)
                 </SelectItem>
-                <SelectItem className="pl-[5px]" value="cst">
+                <SelectItem value="cst" className="text-xs">
                   Central Standard Time (CST)
                 </SelectItem>
-                <SelectItem className="pl-[5px]" value="mst">
+                <SelectItem value="mst" className="text-xs">
                   Mountain Standard Time (MST)
                 </SelectItem>
-                <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-                <SelectItem value="akst">
+                <SelectItem value="pst" className="text-xs">
+                  Pacific Standard Time (PST)
+                </SelectItem>
+                <SelectItem value="akst" className="text-xs">
                   Alaska Standard Time (AKST)
                 </SelectItem>
-                <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
+                <SelectItem value="hst" className="text-xs">
+                  Hawaii Standard Time (HST)
+                </SelectItem>
               </SelectGroup>
               <SelectGroup>
-                <SelectLabel>Europe & Africa</SelectLabel>
-                <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-                <SelectItem value="cet">Central European Time (CET)</SelectItem>
-                <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-                <SelectItem value="west">
-                  Western European Summer Time (WEST)
+                <SelectLabel className="text-xs">North America</SelectLabel>
+                <SelectItem value="est" className="text-xs">
+                  Eastern Standard Time (EST)
                 </SelectItem>
-                <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
-                <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
+                <SelectItem value="cst" className="text-xs">
+                  Central Standard Time (CST)
+                </SelectItem>
+                <SelectItem value="mst" className="text-xs">
+                  Mountain Standard Time (MST)
+                </SelectItem>
+                <SelectItem value="pst" className="text-xs">
+                  Pacific Standard Time (PST)
+                </SelectItem>
+                <SelectItem value="akst" className="text-xs">
+                  Alaska Standard Time (AKST)
+                </SelectItem>
+                <SelectItem value="hst" className="text-xs">
+                  Hawaii Standard Time (HST)
+                </SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
         </div>
         <div className="w-full ml-1 relative">
-          <Input
-            className="w-full focus:ring-0 focus:ring-transparent focus:ring-offset-0"
-            placeholder="Search for any product..."
-          />
+          <Link href={`/products/searched/${"sd"}`}>
+            <Input
+              className="w-full focus:ring-0 focus:ring-transparent focus:ring-offset-0"
+              placeholder="Search for any product..."
+            />
+          </Link>
           {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-slate-50 absolute top-10 left-0 z-[1000] shadow rounded-md p-2">
             <h1 className="text-sm mb-1 px-2 ">Related search</h1>
             <hr />

@@ -72,13 +72,13 @@ const SuperDeals = () => {
         <CarouselContent className="-ml-1">
           {product?.map((item, index) => (
             <CarouselItem key={index} className="pl-1 ">
-              <div className="   rounded-md shadow bg-white flex gap-2 p-2">
+              <div className="   rounded-md shadow dark:bg-slate-800 bg-white flex gap-2 p-2">
                 <div className="w-1/2 xl:w-[30%] h-full flex flex-col gap-2">
                   <h2 className="md:text-base text-sm font-bold italic ">
                     <span className="text-red-400">Super</span> Deals
                   </h2>
                   {/* <hr /> */}
-                  <div className="w-full  md:h-[28vh] h-[20vh] xl:h-[30vh] bg-[#f5f5f5] rounded-md shadow">
+                  <div className="w-full  md:h-[28vh] h-[20vh] xl:h-[30vh] dark:bg-slate-800 bg-[#f5f5f5] rounded-md shadow">
                     <Image
                       src={item.image}
                       className="w-full h-full object-cover"
@@ -94,7 +94,7 @@ const SuperDeals = () => {
                     <h3 className="md:text-xs text-[10px] font-medium mb-1">
                       Coupon & Discount
                     </h3>
-                    <div className="w-fit h-auto md:p-2 p-1 bg-[#f5f5f5] rounded-md">
+                    <div className="w-fit h-auto md:p-2 p-1 dark:bg-slate-800 bg-[#f5f5f5] rounded-md">
                       <h3 className="md:text-xs text-[10px] text-red-500 font-semibold">
                         GHc{item.discountPrice} off
                       </h3>

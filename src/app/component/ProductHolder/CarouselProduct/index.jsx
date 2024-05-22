@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import Product from "../../../../../public/images/products/jacket-2.jpg";
 import Image from "next/image";
+import TopProductHolder from "../TopItems";
 
 export function CarouselProduct() {
   const plugin = React.useRef(
@@ -22,15 +23,10 @@ export function CarouselProduct() {
         {Array.from({ length: 10 }).map((_, index) => (
           <CarouselItem
             key={index}
-            className="pl-1 basis-1/3 md:basis-1/4 lg:basis-1/5"
+            className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/5"
           >
             <div className="p-1">
-              <Card className="w-full">
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  {/* <span className="text-2xl font-semibold">{index + 1}</span> */}
-                  <Image src={Product} />
-                </CardContent>
-              </Card>
+              <TopProductHolder />
             </div>
           </CarouselItem>
         ))}
