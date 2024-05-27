@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <NavigationBar />
+          {/* <NavigationBar /> */}
           {children}
         </ThemeProvider>
       </body>

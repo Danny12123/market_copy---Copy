@@ -4,7 +4,7 @@ import Pic1 from "../../../../public/images/products/jacket-2.jpg";
 
 const CartItem = () => {
   return (
-    <div className="w-full h-auto md:p-2 p-1 transition-all ease-in delay-75 hover:shadow border border-[#eee] rounded-md mb-3">
+    <div className="w-full h-auto md:p-2 p-1 transition-all ease-in delay-75 hover:shadow border border-[#eee] dark:border-gray-500 rounded-md mb-3">
       <div className="w-full flex gap-3">
         <div className="w-1/4">
           <div className="md:w-[110px] md:h-[110px] w-[60px] h-[60px] bg-slate-500 object-cover rounded-sm">
@@ -13,6 +13,7 @@ const CartItem = () => {
               className="w-full h-full rounded-sm"
               width={100}
               height={100}
+              alt="product image"
             />
           </div>
         </div>
@@ -25,11 +26,11 @@ const CartItem = () => {
               12 pair | <span className="text-[#000] text-sm">GHc 10.00</span>
             </h4>
             <div className="flex items-center gap-3">
-              <button className="px-3 py-1 text-xs border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+              <button className="px-3 py-1 text-xs border border-gray-300 dark:border-gray-500 hover:dark:bg-slate-900  rounded hover:bg-slate-200 transition-all ease-in delay-75">
                 +
               </button>
               <h2 className="text-xs">20</h2>
-              <button className="px-3 py-1 text-xs border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+              <button className="px-3 py-1 text-xs border border-gray-300 dark:border-gray-500 hover:dark:bg-slate-900  rounded hover:bg-slate-200 transition-all ease-in delay-75">
                 -
               </button>
             </div>
@@ -50,11 +51,11 @@ const CartItem = () => {
           12 pair | <span className="text-[#000] text-sm">GHc 10.00</span>
         </h4>
         <div className="flex items-center gap-3">
-          <button className="px-3 py-1 text-xs border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+          <button className="px-3 py-1 text-xs border border-gray-300 dark:border-gray-500 hover:dark:bg-slate-900  rounded hover:bg-slate-200 transition-all ease-in delay-75">
             +
           </button>
           <h2 className="text-xs">12</h2>
-          <button className="px-3 py-1 text-xs border border-gray-300 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+          <button className="px-3 py-1 text-xs border border-gray-300 dark:border-gray-500 hover:dark:bg-slate-900  rounded hover:bg-slate-200 transition-all ease-in delay-75">
             -
           </button>
         </div>

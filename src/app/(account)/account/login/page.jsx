@@ -5,8 +5,8 @@ import Link from "next/link";
 import { TextInput } from "@tremor/react";
 const LoginPage = () => {
   return (
-    <div className="w-full md:h-[92vh] h-[80vh] flex p-2">
-      <div className="hidden md:block w-1/2 h-full rounded-md">
+    <div className="w-full min-h-screen bg-bg_secondary dark:bg-bg_dark_secondary flex p-2">
+      <div className="hidden md:block w-full h-full rounded-md">
         <div className="w-full h-full relative">
           <Image src={BgImage} className="w-full h-full rounded-md" />
           <div className=" absolute top-0 left-0 right-0 bottom-0 bg-[#00000062] pt-5 px-5">
@@ -14,13 +14,11 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="md:w-1/2 w-full flex justify-center items-center">
+      <div className="w-full md:w-1/2 flex justify-center items-center">
         <div className="w-full md:mx-8 mx-4">
           <div className="mb-4">
-            <h1 className="text-base font-semibold ">
-              Login into your Account
-            </h1>
-            <p className="text-sm text-gray-400">
+            <h1 className="text-lg font-semibold ">Login into your Account</h1>
+            <p className="text-xs text-gray-400">
               Your details are safe with us
             </p>
           </div>
@@ -37,8 +35,11 @@ const LoginPage = () => {
               Submit
             </button>
           </form>
-          <p className="mt-4 text-sm text-gray-400">
-            Already have an account? <Link href="/account/signUp">SignUp</Link>
+          <p className="mt-4 text-xs text-center text-gray-400">
+            Already have an account?{" "}
+            <Link href="/account/signUp" className="text-red-500">
+              SignUp
+            </Link>
           </p>
         </div>
       </div>

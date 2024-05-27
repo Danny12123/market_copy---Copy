@@ -33,12 +33,14 @@ const NavigationBar = () => {
   const [dropDown, setDropDown] = useState(false);
   const { setTheme } = useTheme();
   return (
-    <div className="w-full">
+    <div className="w-full sticky top-0 left-0 z-50">
       <div className="w-full py-2 dark:bg-black bg-white shadow-sm sticky top-0 z-50 md:px-5 px-3">
         <nav className="flex justify-between items-center relative">
-          <div>
-            <Image src={logoImage} className="w-6" />
-          </div>
+          <Link href="/">
+            <div>
+              <Image src={logoImage} className="w-6" />
+            </div>
+          </Link>
           <div className="w-[40%] hidden  rounded-lg md:flex items-center">
             <div>
               <Select className=" focus:ring-0 focus:ring-transparent focus:ring-offset-0">
@@ -98,20 +100,12 @@ const NavigationBar = () => {
                   placeholder="Search for any product..."
                 />
               </Link>
-              {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-slate-50 absolute top-10 left-0 z-[1000] shadow rounded-md p-2">
-                <h1 className="text-sm mb-2 px-2 ">Related search</h1>
-                <hr />
-                <h6 className="text-sm text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
+              {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-[#fff] dark:bg-slate-800 absolute top-10 left-0 z-[1000] shadow rounded-md px-2 py-1">
+                <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
                   Tops
                 </h6>
-                <h6 className="text-sm text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
+                <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
                   Tops
-                </h6>
-                <h6 className="text-sm text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
-                  Tops
-                </h6>
-                <h6 className="text-sm text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
-                  Tops /Users/danielacquah/Desktop/projects/apple/src/app/(searchpage)/products/searched/[productName]
                 </h6>
               </div> */}
             </div>
@@ -174,7 +168,7 @@ const NavigationBar = () => {
               <ul className="m-0 p-0 ">
                 <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
                   <Link
-                    href="account/signUp"
+                    href="/account/signUp"
                     onClick={() => setDropDown(!dropDown)}
                     role="button"
                   >
@@ -263,19 +257,11 @@ const NavigationBar = () => {
               placeholder="Search for any product..."
             />
           </Link>
-          {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-slate-50 absolute top-10 left-0 z-[1000] shadow rounded-md p-2">
-            <h1 className="text-sm mb-1 px-2 ">Related search</h1>
-            <hr />
-            <h6 className="text-xs text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
+          {/* <div className="w-full min:h-[36vh] h-auto overflow-auto bg-[#fff] dark:bg-slate-800 absolute top-10 left-0 z-[1000] shadow rounded-md px-2 py-1">
+            <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
               Tops
             </h6>
-            <h6 className="text-xs text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
-              Tops
-            </h6>
-            <h6 className="text-xs text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
-              Tops
-            </h6>
-            <h6 className="text-xs text-gray-400 hover:bg-[#f5f5f5] py-1 px-2 my-1">
+            <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
               Tops
             </h6>
           </div> */}

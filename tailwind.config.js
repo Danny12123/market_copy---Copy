@@ -7,6 +7,7 @@ module.exports = {
     "./components/**/*.{js,jsx}",
     "./app/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}",
+    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
@@ -19,6 +20,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        bg_secondary: "#ededed",
+        bg_dark_secondary: "#002",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

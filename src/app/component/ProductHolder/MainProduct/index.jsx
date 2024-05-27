@@ -12,7 +12,7 @@ const MainProduct = () => {
   const handelLike = () => setIsLiked(!isLiked);
   return (
     <div className="w-full h-auto hover:dark:bg-slate-900 transition-all ease-in delay-75 rounded hover:shadow p-2 cursor-pointer">
-      <div className="w-full h-[17vh] md:h-[18vh] 2xl:h-[14vh] rounded-lg relative border border-[#eee]">
+      <div className="w-full h-[20vh] [375px]:h-[20vh] md:h-[22vh] 2xl:h-[16vh] rounded-lg relative border border-[#eee]">
         <Link href="/detail/">
           <Image src={hero1} className="w-full h-full rounded-lg" />
         </Link>
@@ -56,7 +56,7 @@ const MainProduct = () => {
             </h3>
             <p className="line-through text-[10px] text-gray-400">Ghc20.00</p>
           </div>
-          <h6 className="text-xs font-semibold text-right mt-2 text-red-500 italic">
+          <h6 className="text-xs font-semibold text-right md:mt-2 mt-0 text-red-500 italic">
             Negotiable
           </h6>
         </div>

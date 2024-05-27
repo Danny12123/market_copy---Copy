@@ -7,20 +7,20 @@ import Link from "next/link";
 
 const SignUpPage = () => {
   return (
-    <div className="w-full md:h-[92vh] h-[80vh] flex p-2">
-      <div className="hidden md:block w-1/2 h-full rounded-md">
-        <div className="w-full h-full relative">
+    <div className="w-full min-h-screen bg-bg_secondary dark:bg-bg_dark_secondaryflex p-2">
+      <div className="hidden md:block w-full h-full rounded-md">
+        <div className="w-full h-full relative rounded-md">
           <Image src={BgImage} className="w-full h-full rounded-md" />
-          <div className=" absolute top-0 left-0 right-0 bottom-0 bg-[#00000062] pt-5 px-5">
+          <div className=" absolute top-0 left-0 right-0 bottom-0 bg-[#00000062] pt-5 px-5 rounded-md">
             <h1 className="text-2xl text-[#fff]">Welcome to Ordvel</h1>
           </div>
         </div>
       </div>
-      <div className="md:w-1/2 w-full flex justify-center items-center">
+      <div className=" w-full md:w-1/2 flex justify-center items-center">
         <div className="w-full md:mx-8 mx-4">
           <div className="mb-4 mx-auto w-full">
-            <h1 className="text-base font-semibold ">Create Account</h1>
-            <p className="text-sm text-gray-400">
+            <h1 className="text-lg font-semibold ">Create Account</h1>
+            <p className="text-xs text-gray-400">
               Your details are safe with us
             </p>
           </div>
@@ -37,12 +37,15 @@ const SignUpPage = () => {
               <label className="text-sm ">Password</label>
               <TextInput type="password" placeholder="Enter your name" />
             </div>
-            <button className="w-full p-2 bg-green-600 text-[#fff] rounded-md mt-2">
+            <button className="w-full p-2 bg-green-600 text-[#fff] text-sm rounded-md mt-2">
               Submit
             </button>
           </form>
-          <p className="mt-4 text-sm text-gray-400">
-            Already have an account? <Link href="/account/login">Login</Link>
+          <p className="mt-4 text-xs text-gray-400 text-center">
+            Already have an account?{" "}
+            <Link href="/account/login" className="text-red-500">
+              Login
+            </Link>
           </p>
         </div>
       </div>

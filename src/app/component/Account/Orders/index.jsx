@@ -13,7 +13,7 @@ const MyOrders = () => {
           <li
             onClick={() => setIsTab(1)}
             className={` border-b-2 ${
-              isTab === 1 ? "border-b-green-500" : "border-b-[#fff]"
+              isTab === 1 ? "border-b-green-500" : "border-b-transparent"
             } py-1 text-sm cursor-pointer`}
           >
             View all
@@ -21,18 +21,18 @@ const MyOrders = () => {
           <li
             onClick={() => setIsTab(2)}
             className={` border-b-2 ${
-              isTab === 2 ? "border-b-green-500" : "border-b-[#fff]"
+              isTab === 2 ? "border-b-green-500" : "border-b-transparent"
             } py-1 text-sm cursor-pointer`}
           >
-            Shipped
+            Invoices
           </li>
           <li
             onClick={() => setIsTab(3)}
             className={` border-b-2 ${
-              isTab === 3 ? "border-b-green-500" : "border-b-[#fff]"
+              isTab === 3 ? "border-b-green-500" : "border-b-transparent"
             } py-1 text-sm cursor-pointer`}
           >
-            Processed
+            Track order
           </li>
         </ul>
       </div>

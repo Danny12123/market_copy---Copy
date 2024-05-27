@@ -4,8 +4,8 @@ import Pic from "../../../../../public/images/products/clothes-3.jpg";
 
 const OrderProduct = ({ product }) => {
   return (
-    <div className="w-full h-auto rounded-sm p-2 ">
-      <div className="w-full flex gap-2 rounded-md cursor-pointer  transition-all ease-in delay-75 hover:shadow">
+    <div className="w-full h-auto rounded-sm md:p-2 ">
+      <div className="w-full flex items-center justify-center gap-2 bg-[#ededed] dark:bg-slate-900 rounded-md cursor-pointer  transition-all ease-in delay-75 hover:shadow">
         <div className="w-1/2">
           <div className="rounded-sm w-full h-[13vh] object-cover ">
             <Image
@@ -17,7 +17,9 @@ const OrderProduct = ({ product }) => {
           </div>
         </div>
         <div className="w-full p-2">
-          <h4 className="text-sm">{product.product_name}</h4>
+          <h4 className="text-sm [&>span]:line-clamp-1">
+            {product.product_name}
+          </h4>
           <div className="flex gap-2 items-center flex-wrap">
             {product.sizes?.length !== 0 &&
               product.sizes.map((item, index) => (
@@ -30,10 +32,10 @@ const OrderProduct = ({ product }) => {
           </div>
 
           <div className="flex items-center justify-between">
-            <h4 className="text-sm">{product.quantity} unit</h4>
+            <h4 className="text-sm">{product.quantity} *</h4>
             <div id="product_amount" className="flex items-baseline">
-              <h1 className="text-2xl font-bold text-green-700">
-                <span className="text-lg">Ghc</span>
+              <h1 className="text-lg font-bold text-green-700">
+                <span className="text-base">Ghc</span>
                 {product.amount}
                 <span className="text-xs">.99</span>
               </h1>
@@ -43,24 +45,23 @@ const OrderProduct = ({ product }) => {
             </div>
           </div>
           <div className="flex items-center justify-between">
-            <div className="flex items-center bg-green-100 py-[2px] px-2 rounded-xl gap-2">
-              <div
-                className={`w-2 h-2 rounded-full ${
-                  product.status === "Delivered"
-                    ? "bg-green-600"
-                    : product.status === "UnPaid"
-                    ? "bg-red-600"
-                    : product.status === "Received"
-                    ? "bg-yellow-600"
-                    : product.status === "Shipped"
-                    ? "bg-blue-600"
-                    : product.status === "Processed"
-                    ? "bg-gray-600"
-                    : ""
-                } `}
-              ></div>
+            <div
+              className={`flex items-center ${
+                product.status === "Delivered"
+                  ? "bg-green-100"
+                  : product.status === "UnPaid"
+                  ? "bg-red-100"
+                  : product.status === "Received"
+                  ? "bg-yellow-100"
+                  : product.status === "Shipped"
+                  ? "bg-blue-100"
+                  : product.status === "Processed"
+                  ? "bg-gray-100"
+                  : ""
+              } py-[2px] px-2 rounded-xl gap-2`}
+            >
               <p
-                className={`text-xs ${
+                className={`text-[11px] ${
                   product.status === "Delivered"
                     ? "text-green-600"
                     : product.status === "UnPaid"

@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import OrderProductHolder from "@/app/component/Cards/OrderProductHolder";
 import OrderProduct from "@/app/component/ProductHolder/OrderProduct";
 import { Input } from "@/components/ui/input";
@@ -161,14 +163,34 @@ const orders = [
 ];
 
 const ViewAllOrders = () => {
+  const [isFilter, setIsFilter] = useState(false);
   return (
     <div>
       {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam saepe beatae ad, sed neque quasi minima molestiae rem sequi dicta, magnam repudiandae necessitatibus ut perspiciatis suscipit quas vitae. Dicta, non! */}
-      <div className="w-full h-auto justify-center items-center">
-        <Input
-          placeHolder="Search for your order..."
-          className="w-[70%] mx-auto"
-        />
+      <div className="w-full h-auto flex gap-2 justify-center items-center relative">
+        <div className="w-[60%] flex items-center gap-2">
+          <Input
+            placeholder="Search for your order..."
+            className="w-full mx-auto"
+          />
+          <div onClick={() => setIsFilter(!isFilter)} className="">
+            <h1 className="text-sm">Filter </h1>
+          </div>
+          <div
+            className={
+              isFilter
+                ? "w-full md:w-[20%] min:h-[36vh] h-auto overflow-auto bg-[#fff] dark:bg-slate-800 absolute top-10 right-[40px] z-[1000] shadow rounded-md px-2 py-1"
+                : "hidden"
+            }
+          >
+            <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
+              Tops
+            </h6>
+            <h6 className="text-sm text-gray-500 dark:text-white hover:bg-[#f5f5f5] hover:dark:bg-slate-900 py-1 px-2 my-1">
+              Tops
+            </h6>
+          </div>
+        </div>
       </div>
       <div className="mt-3">
         <OrderProductHolder>

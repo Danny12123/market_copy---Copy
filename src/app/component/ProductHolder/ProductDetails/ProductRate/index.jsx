@@ -55,12 +55,12 @@ const ProductRateDetails = () => {
               <h2 className="text-sm text-gray-400">Sell all</h2>
               <div></div>
             </div>
-            <div className="w-full h-auto md:p-3 my-2 md:my-0 rounded-md bg-white">
+            <div className="w-full h-auto md:p-3 my-2 md:my-0 rounded-md bg-white dark:bg-slate-800">
               <div className="w-full flex gap-3 mb-2">
-                <div className="w-[35px] h-[35px] bg-slate-400 rounded-full shadow"></div>
+                <div className="w-[30px] h-[30px] bg-slate-400 rounded-full shadow"></div>
                 <div>
                   <div className="flex items-center gap-3">
-                    <h1 className="text-base font-medium">Danny</h1>
+                    <h1 className="text-sm font-medium">Danny</h1>
                     <div className="flex items-center gap-1">
                       <RiStarFill size={15} className=" text-yellow-400" />
                       <RiStarFill size={15} className=" text-yellow-400" />

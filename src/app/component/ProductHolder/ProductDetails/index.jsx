@@ -13,6 +13,7 @@ import Specification from "./ProductDescription/Specification";
 import RelatedProduct from "../../TopSections/RelatedProduts";
 import SuggestedProduct from "../../TopSections/SuggestedProduct";
 import Debate from "../../Modals/DebateOnProduct";
+import { FileCheck } from "lucide-react";
 
 const productImage = [Pic1, Pic2, Pic3];
 const ProductDetails = () => {
@@ -35,7 +36,7 @@ const ProductDetails = () => {
   return (
     <div className=" h-auto">
       {/* <SectionHolder> */}
-      <div className="w-full h-auto md:flex gap-2 py-2 md:px-3 px-2">
+      <div className="w-full h-auto md:flex gap-2 py-2 md:px-3 px-2 md:pb-0 pb-[70px]">
         <div className="w-full sm:flex gap-2">
           {/* Product images */}
           <div
@@ -83,7 +84,7 @@ const ProductDetails = () => {
             </div>
           </div>
           {/* product details */}
-          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] w-full h-fit">
+          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] shadow w-full h-fit">
             <p className="text-sm text-gray-500 dark:text-gray-300 font-medium">
               Men's short sleeved polo, business casual shirt, tight
               fitting,fashionable, summer novelty, 2024
@@ -162,11 +163,11 @@ const ProductDetails = () => {
               </h3>
               <div className="flex justify-between items-center gap-2 mb-3 mt-1">
                 <div className="flex items-center gap-3">
-                  <button className="px-3 py-1 border border-gray-300 dark:border-gray-500 rounded hover:bg-slate-200 transition-all ease-in delay-75">
+                  <button className="px-3 py-1 border border-gray-300 dark:border-gray-500 rounded hover:bg-slate-200 hover:dark:bg-slate-900  transition-all ease-in delay-75">
                     +
                   </button>
-                  <h2 className="text-sm">20</h2>
-                  <button className="px-3 py-1 border border-gray-300 rounded dark:border-gray-500 hover:bg-slate-200 transition-all ease-in delay-75">
+                  <h2 className="text-sm">2</h2>
+                  <button className="px-3 py-1 border border-gray-300 rounded dark:border-gray-500 hover:bg-slate-200 hover:dark:bg-slate-900  transition-all ease-in delay-75">
                     -
                   </button>
                 </div>
@@ -175,7 +176,7 @@ const ProductDetails = () => {
                     onClick={() => setIsDescOrSpec(1)}
                     className={`py-2 px-3  ${
                       isDescOrSpec === 1 && "bg-[#f5f5f5] dark:bg-slate-900"
-                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] dark:border-gray-500 hover:border-gray-300`}
+                    } text-sm rounded-lg transition-all ease-in delay-75 border border-transparent  hover:border-gray-300`}
                   >
                     Description
                   </button>
@@ -183,7 +184,7 @@ const ProductDetails = () => {
                     onClick={() => setIsDescOrSpec(2)}
                     className={`py-2 px-3  ${
                       isDescOrSpec === 2 && "bg-[#f5f5f5] dark:bg-slate-900"
-                    } text-sm rounded-lg transition-all ease-in delay-75 border border-[#fff] dark:border-gray-500 hover:border-gray-300`}
+                    } text-sm rounded-lg transition-all ease-in delay-75 border border-transparent  hover:border-gray-300`}
                   >
                     Specification
                   </button>
@@ -202,7 +203,7 @@ const ProductDetails = () => {
         </div>
         {/* display delivery details */}
         <div className="md:w-1/3 md:mt-0 my-4 w-full md:h-auto h-10 ">
-          <div className="w-full h-auto p-2 bg-slate-50 border border-gray-300 rounded-lg">
+          <div className="w-full h-auto p-2 bg-slate-50 border dark:bg-slate-800 border-gray-300 dark:border-gray-500 rounded-lg">
             <div className="w-full flex items-center justify-between">
               <h2 className="text-sm font-medium">Ship to</h2>
               <div>
@@ -222,6 +223,39 @@ const ProductDetails = () => {
               </p>
             </div>
             <hr className="my-2" />
+            {/* About shop */}
+            <div className="w-full">
+              <h2 className="text-sm mb-2">Shop details</h2>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-[30px] h-[30px] object-cover rounded-full">
+                    <Image
+                      src={Pic2}
+                      alt="profile"
+                      width={100}
+                      height={100}
+                      className="w-full h-full rounded-full"
+                    />
+                  </div>
+                  <h1 className="text-sm text-gray-500 dark:text-gray-400">
+                    Shalom's home |{" "}
+                    <span className="text-xs">102 followers</span>
+                  </h1>
+                </div>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-green-600 italic">Verified</p>
+                  <FileCheck className="text-green-400" size={17} />
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <button className="text-xs w-[30%] py-1 px-2 border rounded-md dark:border-gray-500 mt-3">
+                View shop
+              </button>
+              <button className="text-xs w-[20%] py-1 px-2 border rounded-md dark:border-gray-500 mt-3">
+                Follow
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -229,7 +263,7 @@ const ProductDetails = () => {
         {/* display product specification and descriptions */}
         <div className="w-full h-auto  md:p-3">
           <h1 className="text-lg font-medium">Details about this product</h1>
-          <hr className="my-2" />
+          <hr className="my-2 text-black" />
           <div
             className={
               isDescOrSpec === 1
@@ -252,6 +286,7 @@ const ProductDetails = () => {
         {/* display product ratings */}
         <ProductRateDetails />
       </SectionHolder>
+
       {/* Display related product to the selected product */}
       <RelatedProduct />
       {/* Display suggested product to the selected product */}

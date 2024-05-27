@@ -5,8 +5,8 @@ import TopCategory from "./component/TopSections/TopCategory/TopCategory";
 
 export default function Home() {
   return (
-    <main>
-      {/* <NavigationBar /> */}
+    <main className="w-full min-h-screen bg-bg_secondary dark:bg-bg_dark_secondary">
+      <NavigationBar />
       <Hero />
       <TopCategory />
       <AllProduct />
