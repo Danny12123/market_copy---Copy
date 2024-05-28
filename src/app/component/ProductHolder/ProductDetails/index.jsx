@@ -21,6 +21,16 @@ const ProductDetails = () => {
   const [isDescOrSpec, setIsDescOrSpec] = useState(1);
   const [isDebateOnProduct, setIsDebateOnProduct] = useState(false);
   const [isSizeActive, setIsSizeActive] = useState(true);
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantityHandler = () => {
+    if (quantity === 1) {
+      return;
+    } else {
+      setQuantity(...quantity, quantity + 1);
+    }
+  };
+
   const handleSmallImageClicked = (index) => setCurrentImageIndex(index);
 
   const handleNextSlide = () => {
@@ -36,7 +46,7 @@ const ProductDetails = () => {
   return (
     <div className=" h-auto">
       {/* <SectionHolder> */}
-      <div className="w-full h-auto md:flex gap-2 py-2 md:px-3 px-2 md:pb-0 pb-[70px]">
+      <div className="w-full h-full md:flex gap-2 py-2 md:px-3 px-2 md:pb-0 pb-[70px]">
         <div className="w-full sm:flex gap-2">
           {/* Product images */}
           <div
@@ -164,11 +174,14 @@ const ProductDetails = () => {
               <div className="flex justify-between items-center gap-2 mb-3 mt-1">
                 <div className="flex items-center gap-3">
                   <button className="px-3 py-1 border border-gray-300 dark:border-gray-500 rounded hover:bg-slate-200 hover:dark:bg-slate-900  transition-all ease-in delay-75">
-                    +
-                  </button>
-                  <h2 className="text-sm">2</h2>
-                  <button className="px-3 py-1 border border-gray-300 rounded dark:border-gray-500 hover:bg-slate-200 hover:dark:bg-slate-900  transition-all ease-in delay-75">
                     -
+                  </button>
+                  <h2 className="text-sm">{quantity}</h2>
+                  <button
+                    onClick={increaseQuantityHandler}
+                    className="px-3 py-1 border border-gray-300 rounded dark:border-gray-500 hover:bg-slate-200 hover:dark:bg-slate-900  transition-all ease-in delay-75"
+                  >
+                    +
                   </button>
                 </div>
                 <div className="w-fit h-auto border border-[#eee] dark:border-gray-500 rounded-xl p-1 flex items-center gap-2">
@@ -192,10 +205,10 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="w-full flex items-center gap-3">
-              <button className="sm:w-2/3 w-full p-2 rounded-sm bg-green-600 hover:bg-green-700 transition-all ease-in delay-75 text-[#fff] text-sm">
+              <button className="sm:w-2/3 w-full p-2 rounded-sm bg-green-600  hover:bg-green-700 transition-all ease-in delay-75 text-[#fff]  text-sm">
                 Add to cart
               </button>
-              <button className="sm:w-1/3 w-full p-2 rounded-sm bg-green-600 hover:bg-green-700 transition-all ease-in delay-75 text-[#fff] text-sm">
+              <button className="sm:w-1/3 w-full p-2 rounded-sm border border-green-600 hover:bg-green-700 transition-all ease-in delay-75 text-[#000] hover:text-[#fff] text-sm">
                 Buy now
               </button>
             </div>

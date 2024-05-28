@@ -13,8 +13,8 @@ const ProductSearchedPage = () => {
       <NavigationBar />
       <div className="md:p-5 p-2">
         <div className="w-full ">
-          <div className="w-full md:flex gap-3">
-            <div className="md:w-1/5 w-full h-full">
+          <div className="w-full lg:flex gap-3">
+            <div className="lg:w-1/5 mb-2 lg:block hidden w-full h-full">
               <div className="w-full h-fit bg-[#fff] dark:bg-slate-800 p-2 rounded">
                 <div className="flex justify-between items-center w-full">
                   <h2 className="text-base font-medium">Filter</h2>
@@ -55,20 +55,12 @@ const ProductSearchedPage = () => {
               </div>
             </div>
             <div className="w-full h-auto">
-              {/* <div className="w-full flex items-end justify-end">
-            <div className="flex items-center gap-3">
-              <h3 className="text-sm">View</h3>
-              <div className="w-fit p-2 rounded-xl flex items-center gap-2">
-                <h3 className="py-1 px-2 text-red-500 border text-xs cursor-pointer rounded-lg">
-                  Gallery
-                </h3>
-                <h3 className="py-1 px-2 text-gray-500 border text-xs cursor-pointer rounded-lg">
-                  List
-                </h3>
-              </div>
-            </div>
-          </div> */}
               <div className="w-full h-auto bg-white dark:bg-slate-800 p-2 rounded-md">
+                <div className="w-full lg:hidden flex justify-end items-end">
+                  <div>
+                    <h2>Filter</h2>
+                  </div>
+                </div>
                 {/* <SectionHolder> */}
                 <SearchGridHolder>
                   <MainProduct />

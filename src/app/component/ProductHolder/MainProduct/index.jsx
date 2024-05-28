@@ -39,11 +39,11 @@ const MainProduct = () => {
           <div className="flex items-center md:justify-start justify-between">
             <div className="flex items-center">
               <span className="text-sm">4.5</span>
-              <RiStarFill size={14} className=" text-green-500" />
+              <RiStarFill size={14} className=" text-yellow-400" />
               {/* <RiStarFill size={13} className=" text-green-500" />
               <RiStarFill size={13} className=" text-green-500" />
               <RiStarHalfLine size={13} className=" text-green-500" />*/}
-              <RiStarHalfLine size={13} className=" text-green-500" />
+              <RiStarHalfLine size={13} className=" text-yellow-400" />
             </div>
             <p className="text-xs text-gray-400">100+ sold</p>
           </div>
