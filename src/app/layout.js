@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "./component/NavBar/NavigationBar";
 import { ThemeProvider } from "./component/Theme";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,8 +20,8 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {/* <NavigationBar /> */}
           {children}
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
