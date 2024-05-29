@@ -25,7 +25,8 @@
     "react-dom": "^18",
     "swiper": "^6.0.2",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vercel": "^34.2.3"
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.18",
