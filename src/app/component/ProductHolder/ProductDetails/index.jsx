@@ -96,7 +96,7 @@ const ProductDetails = () => {
           {/* product details */}
           <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] shadow w-full h-fit">
             <p className="text-sm text-gray-500 dark:text-gray-300 font-medium">
-              Men's short sleeved polo, business casual shirt, tight
+              Mens short sleeved polo, business casual shirt, tight
               fitting,fashionable, summer novelty, 2024
             </p>
             <div className="my-2 ">
@@ -251,8 +251,7 @@ const ProductDetails = () => {
                     />
                   </div>
                   <h1 className="text-sm text-gray-500 dark:text-gray-400">
-                    Shalom's home |{" "}
-                    <span className="text-xs">102 followers</span>
+                    Shalom home | <span className="text-xs">102 followers</span>
                   </h1>
                 </div>
                 <div className="flex items-center gap-2">

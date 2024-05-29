@@ -43,7 +43,7 @@ const OverView = ({ setIsTab }) => {
                 <hr className="my-1 bg-[#000]" />
                 <div>
                   <h4 className="text-sm">
-                    You ordered Men's Top.Your order has been received. We will
+                    You ordered Mens Top.Your order has been received. We will
                     get back to you shortly
                   </h4>
                   <p

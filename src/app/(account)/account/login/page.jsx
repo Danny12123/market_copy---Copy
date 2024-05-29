@@ -8,7 +8,11 @@ const LoginPage = () => {
     <div className="w-full min-h-screen bg-bg_secondary dark:bg-bg_dark_secondary flex p-2">
       <div className="hidden md:block w-full h-full rounded-md">
         <div className="w-full h-full relative">
-          <Image src={BgImage} className="w-full h-full rounded-md" />
+          <Image
+            src={BgImage}
+            className="w-full h-full rounded-md"
+            alt="loginBg"
+          />
           <div className=" absolute top-0 left-0 right-0 bottom-0 bg-[#00000062] pt-5 px-5">
             <h1 className="text-2xl text-[#fff]">Welcome to Ordvel</h1>
           </div>

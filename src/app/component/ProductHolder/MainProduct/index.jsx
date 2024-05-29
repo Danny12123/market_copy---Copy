@@ -31,7 +31,7 @@ const MainProduct = () => {
       <Link href="detail/">
         <div className="flex justify-between items-center py-1">
           <h4 className="truncate dark:text-gray-200 text-xs [&>span]:line-clamp-1">
-            Cloth Men's short sleeved polo, business casual s
+            Cloth Mens short sleeved polo, business casual s
           </h4>
         </div>
 
