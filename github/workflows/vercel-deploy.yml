@@ -1,0 +1,32 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+        # If the npm install command fails, stop the workflow
+        if: ${{ failure() }}
+
+      - name: Build
+        run: npm run build
+        # If the build command fails, stop the workflow
+        if: ${{ failure() }}
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: GdfqAJFKrULJiEU9EtUabxGU
+          vercel-org-id: uhhxXYWV0JfbAdtSDPasWxUb
+          vercel-project-id: prj_Dk7rPf28C93DYNWKqZzXqV5XTRa1
+        # If any of the previous steps failed, do not deploy
+        if: ${{ success() }}
