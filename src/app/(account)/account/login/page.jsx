@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TextInput } from "@tremor/react";
 const LoginPage = () => {
   return (
-    <div className="w-full min-h-screen bg-bg_secondary dark:bg-bg_dark_secondary flex justify-center items-center p-2">
+    <div className="w-full h-screen bg-bg_secondary dark:bg-bg_dark_secondary flex justify-center items-center p-2">
       <div className="hidden md:block w-full h-full rounded-md">
         <div className="w-full h-full relative">
           <Image
