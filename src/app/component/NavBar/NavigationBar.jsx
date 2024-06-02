@@ -27,11 +27,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAccountNavigator } from '@/app/context/AccountContext'
 
 const NavigationBar = () => {
-  const [navBox, setNavBox] = useState(false);
-  const [dropDown, setDropDown] = useState(false);
-  const { setTheme } = useTheme();
+  const { setIsTab } = useAccountNavigator()
+  const [navBox, setNavBox] = useState(false)
+  const [dropDown, setDropDown] = useState(false)
+  const { setTheme } = useTheme()
   return (
     <div className="w-full dark:bg-black bg-white sticky top-0 left-0 z-50">
       <div className="relative w-full">
@@ -99,7 +101,7 @@ const NavigationBar = () => {
                 </Select>
               </div>
               <div className="w-full ml-1 relative">
-                <Link href={`/products/searched/${"sd"}`}>
+                <Link href={`/products/searched/${'sd'}`}>
                   <Input
                     className="w-full"
                     placeholder="Search for any product..."
@@ -125,13 +127,13 @@ const NavigationBar = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => setTheme("light")}>
+                  <DropdownMenuItem onClick={() => setTheme('light')}>
                     Light
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  <DropdownMenuItem onClick={() => setTheme('dark')}>
                     Dark
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("system")}>
+                  <DropdownMenuItem onClick={() => setTheme('system')}>
                     System
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -177,7 +179,7 @@ const NavigationBar = () => {
               className=" absolute top-0 left-0 w-full h-full"
             ></div>
             <ul className="m-0 p-2 w-[50%] md:w-[20%] h-auto bg-[#fff] dark:bg-slate-900  absolute shadow top-[52px] right-0 rounded-md">
-              <div className="w-full flex items-center gap-2">
+              <div className="w-full flex items-center gap-2 mb-2">
                 <button className="w-[50%] bg-green-500 hover:bg-green-600 transition-all delay-75 ease-out text-white rounded-md px-3 py-2 border border-transparent text-xs">
                   <Link
                     href="/account/signUp"
@@ -197,20 +199,43 @@ const NavigationBar = () => {
                   </Link>
                 </button>
               </div>
-              <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
-                Sell with us
-              </li>
-              <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
-                My orders
-              </li>
-              <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
-                My coins
-              </li>
-              <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
-                Wish list
-              </li>
-              <li className="text-sm px-2 py-1 hover:bg-slate-200 hover:text-base cursor-pointer">
+              <Link
+                href="/account"
+                onClick={() => {
+                  setDropDown(!dropDown)
+                  setIsTab(2)
+                }}
+              >
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800  cursor-pointer">
+                  My orders
+                </li>
+              </Link>
+              <Link
+                href="/account"
+                onClick={() => {
+                  setDropDown(!dropDown)
+                  setIsTab(1)
+                }}
+              >
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800  cursor-pointer">
+                  My coins
+                </li>
+              </Link>
+              <Link
+                href="/account"
+                onClick={() => {
+                  setDropDown(!dropDown), setIsTab(3)
+                }}
+              >
+                <li className="text-sm px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800  cursor-pointer">
+                  Wish list
+                </li>
+              </Link>
+              <li className="text-sm px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800  cursor-pointer">
                 Help center
+              </li>
+              <li className="text-sm px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800  cursor-pointer">
+                Sell with us
               </li>
             </ul>
           </div>
@@ -268,7 +293,7 @@ const NavigationBar = () => {
             </Select>
           </div>
           <div className="w-full ml-1 relative">
-            <Link href={`/products/searched/${"sd"}`}>
+            <Link href={`/products/searched/${'sd'}`}>
               <Input
                 className="w-full focus:ring-0 focus:ring-transparent focus:ring-offset-0"
                 placeholder="Search for any product..."
@@ -286,7 +311,7 @@ const NavigationBar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default NavigationBar;

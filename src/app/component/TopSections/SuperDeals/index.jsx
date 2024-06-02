@@ -1,71 +1,69 @@
 "use client";
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
+import Autoplay from 'embla-carousel-autoplay'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from '@/components/ui/carousel'
 
-import ProductImg from "../../../../../public/images/products/clothes-3.jpg";
-import ProductImg2 from "../../../../../public/images/products/clothes-4.jpg";
-import Image from "next/image";
-
-import { RiHeart2Fill, RiHeartLine } from "@remixicon/react";
-import { RiStarFill, RiStarHalfLine, RiCheckFill } from "@remixicon/react";
+import ProductImg from '../../../../../public/images/products/clothes-3.jpg'
+import ProductImg2 from '../../../../../public/images/products/clothes-4.jpg'
+import Image from 'next/image'
+import { Card, CardContent } from '@/components/ui/card'
+import { RiStarFill, RiStarHalfLine, RiCheckFill } from '@remixicon/react'
 
 const product = [
   {
-    type: "Super Deals",
+    type: 'Super Deals',
     image: ProductImg,
-    discountPrice: "15.30",
-    orders_over: "10",
+    discountPrice: '15.30',
+    orders_over: '10',
     desc: " Men's short sleeved polo, business casual shirt, tight fitting,fashionable, summer novelty, 2024",
     amount: 59.2,
     rat: 4,
     num_reviews: 2000,
     num_sold: 120,
-    shop_name: "Shalom",
+    shop_name: 'Shalom',
     num_shop_followers: 2000,
-    size: ["40", "41", "42", "43", "44"],
+    size: ['40', '41', '42', '43', '44'],
   },
   {
-    type: "Super Deals",
+    type: 'Super Deals',
     image: ProductImg2,
-    discountPrice: "15.30",
-    orders_over: "10",
+    discountPrice: '15.30',
+    orders_over: '10',
     desc: " Men's short sleeved polo, business casual shirt, tight fitting,fashionable, summer novelty, 2024",
     amount: 39.2,
     rat: 3,
     num_reviews: 100,
     num_sold: 120,
-    shop_name: "Shalom",
+    shop_name: 'Shalom',
     num_shop_followers: 2000,
-    size: ["40", "41", "44"],
+    size: ['40', '41', '44'],
   },
   {
-    type: "Super Deals",
+    type: 'Super Deals',
     image: ProductImg,
-    discountPrice: "15.30",
-    orders_over: "10",
+    discountPrice: '15.30',
+    orders_over: '10',
     desc: " Men's short sleeved polo, business casual shirt, tight fitting,fashionable, summer novelty, 2024",
     amount: 29.2,
     rat: 4,
     num_reviews: 5000,
     num_sold: 120,
-    shop_name: "Shalom",
+    shop_name: 'Shalom',
     num_shop_followers: 2000,
-    size: ["40", "44"],
+    size: ['40', '44'],
   },
-];
+]
 
 const SuperDeals = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
+    Autoplay({ delay: 4000, stopOnInteraction: true }),
+  )
   return (
     <div className=" max-[425px]:w-full w-[70%] h-auto ">
       <Carousel plugins={[plugin.current]}>
@@ -77,24 +75,17 @@ const SuperDeals = () => {
                   <h2 className="md:text-base text-sm font-bold italic ">
                     <span className="text-red-400">Super</span> Deals
                   </h2>
-                  {/* <hr /> */}
-                  <div className="w-full  md:h-[28vh] h-[20vh] xl:h-[30vh] dark:bg-slate-800 bg-[#f5f5f5] rounded-md shadow">
+                  <Card>
                     <Image
                       src={item.image}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-auto"
                     />
-                  </div>
-                  <div className="md:flex hidden items-center justify-center gap-2">
-                    <div className="w-[35px] md:w-[50px] h-[25px] rounded md:h-[35px] bg-slate-500"></div>
-                    <div className="w-[35px] md:w-[50px] h-[25px] rounded md:h-[35px] bg-slate-500"></div>
-                    <div className="w-[35px] md:w-[50px] h-[25px] rounded md:h-[35px] bg-slate-500"></div>
-                    <div className="w-[35px] md:w-[50px] h-[25px] rounded md:h-[35px] bg-slate-500"></div>
-                  </div>
+                  </Card>
                   <div className="md:hidden block">
-                    <h3 className="md:text-xs text-[10px] font-medium mb-1">
+                    <h3 className="md:text-xs text-[10px]  font-medium mb-1">
                       Coupon & Discount
                     </h3>
-                    <div className="w-fit h-auto md:p-2 p-1 dark:bg-slate-800 bg-[#f5f5f5] rounded-md">
+                    <div className="w-fit h-auto md:p-2 p-1 dark:bg-slate-700 bg-[#f5f5f5] rounded-md">
                       <h3 className="md:text-xs text-[10px] text-red-500 font-semibold">
                         GHc{item.discountPrice} off
                       </h3>
@@ -138,7 +129,7 @@ const SuperDeals = () => {
                         <h3 className="md:text-xs text-[10px] font-medium mb-1">
                           Coupon & Discount
                         </h3>
-                        <div className="w-fit h-auto md:p-2 p-1 bg-[#f5f5f5] rounded-md">
+                        <div className="w-fit h-auto md:p-2 p-1 bg-[#f5f5f5] dark:bg-slate-800 rounded-md">
                           <h3 className="md:text-xs text-[10px] text-red-500 font-semibold">
                             GHc15.30 off
                           </h3>
@@ -150,12 +141,12 @@ const SuperDeals = () => {
 
                       <div className="">
                         <h1 className="md:text-xs text-[10px]">
-                          Shop name |{" "}
+                          Shop name |{' '}
                           <span className="text-gray-400">2k followers</span>
                         </h1>
                       </div>
                     </div>
-                    <div className="flex my-2 gap-2 overflow-auto">
+                    {/* <div className="flex my-2 gap-2 overflow-auto">
                       {item.size.map((size, index) => (
                         <div
                           key={index}
@@ -164,10 +155,15 @@ const SuperDeals = () => {
                           {size}
                         </div>
                       ))}
+                    </div> */}
+                    <div className="w-full flex items-center gap-3">
+                      <button className="sm:w-2/3 w-full p-2 rounded-sm bg-green-600  hover:bg-green-700 transition-all ease-in delay-75 text-[#fff]  text-sm">
+                        Add to cart
+                      </button>
+                      <button className="sm:w-1/3 w-full p-2 rounded-sm border border-green-600 hover:bg-green-700 transition-all ease-in delay-75 dark:text-[#fff] text-[#000] hover:text-[#fff] text-sm">
+                        Buy now
+                      </button>
                     </div>
-                    <button className="w-full md:w-2/4 p-2 text-xs bg-green-500 text-[#fff]  rounded-md">
-                      Add to cart
-                    </button>
                   </div>
                 </div>
               </div>
@@ -178,7 +174,7 @@ const SuperDeals = () => {
         <CarouselNext className=" absolute right-0" />
       </Carousel>
     </div>
-  );
-};
+  )
+}
 
 export default SuperDeals;

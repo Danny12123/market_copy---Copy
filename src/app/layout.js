@@ -3,6 +3,8 @@ import "./globals.css";
 import NavigationBar from "./component/NavBar/NavigationBar";
 import { ThemeProvider } from "./component/Theme";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AccountNavigatorProvider } from '@/app/context/AccountContext'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -20,10 +22,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AccountNavigatorProvider>{children}</AccountNavigatorProvider>
           <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
