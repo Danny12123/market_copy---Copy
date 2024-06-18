@@ -10,9 +10,10 @@ import heartLine from "../../../../public/images/icons/heart-line.svg";
 import { RiHeart2Fill, RiHeartLine } from "@remixicon/react";
 import { RiStarFill, RiStarHalfLine } from "@remixicon/react";
 import MainProduct from "../ProductHolder/MainProduct";
+import { products } from '@/app/utilites/products'
 const AllProduct = () => {
-  const [isLiked, setIsLiked] = useState(false);
-  const handelLike = () => setIsLiked(!isLiked);
+  const [isLiked, setIsLiked] = useState(false)
+  const handelLike = () => setIsLiked(!isLiked)
   return (
     <div className="">
       <SectionHolder>
@@ -21,21 +22,13 @@ const AllProduct = () => {
           <hr />
         </div>
         <GridHolder>
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
-          <MainProduct />
+          {products.map((item, index) => (
+            <MainProduct key={index} product={item} />
+          ))}
         </GridHolder>
       </SectionHolder>
     </div>
-  );
-};
+  )
+}
 
 export default AllProduct;

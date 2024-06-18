@@ -6,6 +6,7 @@ import MainProduct from "@/app/component/ProductHolder/MainProduct";
 import { Input } from "@/components/ui/input";
 import { Filter } from "lucide-react";
 import React from "react";
+import { products } from '@/app/utilites/products'
 
 const ProductSearchedPage = () => {
   return (
@@ -63,17 +64,9 @@ const ProductSearchedPage = () => {
                 </div>
                 {/* <SectionHolder> */}
                 <SearchGridHolder>
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
-                  <MainProduct />
+                  {products.map((item, index) => (
+                    <MainProduct key={index} product={item} />
+                  ))}
                 </SearchGridHolder>
                 {/* </SectionHolder> */}
               </div>
@@ -82,7 +75,7 @@ const ProductSearchedPage = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default ProductSearchedPage;

@@ -96,7 +96,7 @@ const SuperDeals = () => {
                   </div>
                 </div>
                 <div className="w-1/2 xl:w-[70%] p-2">
-                  <div className="w-full overflow-hidden ">
+                  <div className="w-full h-full overflow-hidden relative">
                     <label className="text-sm truncate ">{item.desc}</label>
                     <div className="flex items-baseline justify-end text-end">
                       <h1 className="text-lg font-[900] text-red-600 italic">
@@ -156,8 +156,8 @@ const SuperDeals = () => {
                         </div>
                       ))}
                     </div> */}
-                    <div className="w-full flex items-center gap-3">
-                      <button className="sm:w-2/3 w-full p-2 rounded-sm bg-green-600  hover:bg-green-700 transition-all ease-in delay-75 text-[#fff]  text-sm">
+                    <div className="w-full flex items-center gap-3 absolute bottom-0">
+                      <button className="sm:w-2/3 w-full p-2 rounded-sm bg-green-600   hover:bg-green-700 transition-all ease-in delay-75 text-[#fff]  text-sm">
                         Add to cart
                       </button>
                       <button className="sm:w-1/3 w-full p-2 rounded-sm border border-green-600 hover:bg-green-700 transition-all ease-in delay-75 dark:text-[#fff] text-[#000] hover:text-[#fff] text-sm">

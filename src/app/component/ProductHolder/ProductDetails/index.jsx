@@ -14,44 +14,45 @@ import RelatedProduct from "../../TopSections/RelatedProduts";
 import SuggestedProduct from "../../TopSections/SuggestedProduct";
 import Debate from "../../Modals/DebateOnProduct";
 import { FileCheck } from "lucide-react";
+import Link from 'next/link'
 
-const productImage = [Pic1, Pic2, Pic3];
+const productImage = [Pic1, Pic2, Pic3]
 const ProductDetails = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isDescOrSpec, setIsDescOrSpec] = useState(1);
-  const [isDebateOnProduct, setIsDebateOnProduct] = useState(false);
-  const [isSizeActive, setIsSizeActive] = useState(true);
-  const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isDescOrSpec, setIsDescOrSpec] = useState(1)
+  const [isDebateOnProduct, setIsDebateOnProduct] = useState(false)
+  const [isSizeActive, setIsSizeActive] = useState(true)
+  const [quantity, setQuantity] = useState(1)
 
   const increaseQuantityHandler = () => {
     if (quantity === 1) {
-      return;
+      return
     } else {
-      setQuantity(...quantity, quantity + 1);
+      setQuantity(...quantity, quantity + 1)
     }
-  };
+  }
 
-  const handleSmallImageClicked = (index) => setCurrentImageIndex(index);
+  const handleSmallImageClicked = (index) => setCurrentImageIndex(index)
 
   const handleNextSlide = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === productImage.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+      prevIndex === productImage.length - 1 ? 0 : prevIndex + 1,
+    )
+  }
   const handlePrevSlide = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? productImage.length - 1 : prevIndex - 1
-    );
-  };
+      prevIndex === 0 ? productImage.length - 1 : prevIndex - 1,
+    )
+  }
   return (
     <div className=" h-auto">
       {/* <SectionHolder> */}
-      <div className="w-full h-full md:flex gap-2 py-2 md:px-3 px-2 md:pb-0 pb-[70px]">
-        <div className="w-full sm:flex gap-2">
+      <div className="w-full h-auto md:flex gap-2 py-2 md:px-3 px-2 md:pb-0 ">
+        <div className="w-full h-full sm:flex gap-2">
           {/* Product images */}
           <div
             id="product_images"
-            className="sm:w-[35%] max-[450px]:w-full w-[70%] m-auto h-auto overflow-hidden"
+            className="sm:w-[35%] max-[450px]:w-full w-[70%] m-auto h-full overflow-hidden"
           >
             <div className="relative">
               <div
@@ -64,6 +65,7 @@ const ProductDetails = () => {
                   <Image
                     key={index}
                     src={item}
+                    alt="image"
                     className="w-full h-full rounded"
                   />
                 ))}
@@ -81,11 +83,12 @@ const ProductDetails = () => {
                 <div
                   key={index}
                   className={`w-[50px] h-[45px] rounded shadow object-cover ${
-                    currentImageIndex === index && "border border-gray-400 "
+                    currentImageIndex === index && 'border border-gray-400 '
                   }`}
                 >
                   <Image
                     src={item}
+                    alt="image"
                     className="w-full h-full rounded"
                     onClick={() => handleSmallImageClicked(index)}
                   />
@@ -94,12 +97,12 @@ const ProductDetails = () => {
             </div>
           </div>
           {/* product details */}
-          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] shadow w-full h-fit">
+          <div className="p-2 sm:w-[65%] sm:mt-0 mt-2 rounded dark:bg-slate-800 bg-[#fff] shadow w-full h-full">
             <p className="text-sm text-gray-500 dark:text-gray-300 font-medium">
               Mens short sleeved polo, business casual shirt, tight
               fitting,fashionable, summer novelty, 2024
             </p>
-            <div className="my-2 ">
+            <div className="my-2 h-full ">
               <div id="product_amount" className="my-2 flex items-baseline">
                 <h1 className="text-2xl font-bold text-green-700">
                   <span className="text-xs">Ghc</span>
@@ -112,13 +115,13 @@ const ProductDetails = () => {
               </div>
               <div className="my-2">
                 <p className="text-xs">
-                  This product is negotiable. Click{" "}
+                  This product is negotiable. Click{' '}
                   <span
                     className="text-red-500 cursor-pointer"
                     onClick={() => setIsDebateOnProduct(true)}
                   >
                     here
-                  </span>{" "}
+                  </span>{' '}
                   to negotiate
                 </p>
               </div>
@@ -148,8 +151,8 @@ const ProductDetails = () => {
                 <div
                   className={`min-w-[32px] cursor-pointer w-fit  p-2 h-[30px]  hover:bg-slate-200 transition-all ease-in delay-75 flex justify-center items-center rounded border ${
                     isSizeActive
-                      ? "dark:bg-slate-800 border-slate-300 bg-slate-200 hover:dark:bg-slate-900 dark:border-gray-500"
-                      : "border-gray-300 dark:border-gray-500 bg-[#f5f5f5f5] dark:bg-slate-400 hover:dark:bg-slate-900"
+                      ? 'dark:bg-slate-800 border-slate-300 bg-slate-200 hover:dark:bg-slate-900 dark:border-gray-500'
+                      : 'border-gray-300 dark:border-gray-500 bg-[#f5f5f5f5] dark:bg-slate-400 hover:dark:bg-slate-900'
                   }  `}
                 >
                   <h4 className="text-sm">sm</h4>
@@ -188,7 +191,7 @@ const ProductDetails = () => {
                   <button
                     onClick={() => setIsDescOrSpec(1)}
                     className={`py-2 px-3  ${
-                      isDescOrSpec === 1 && "bg-[#f5f5f5] dark:bg-slate-900"
+                      isDescOrSpec === 1 && 'bg-[#f5f5f5] dark:bg-slate-900'
                     } text-sm rounded-lg transition-all ease-in delay-75 border border-transparent  hover:border-gray-300`}
                   >
                     Description
@@ -196,7 +199,7 @@ const ProductDetails = () => {
                   <button
                     onClick={() => setIsDescOrSpec(2)}
                     className={`py-2 px-3  ${
-                      isDescOrSpec === 2 && "bg-[#f5f5f5] dark:bg-slate-900"
+                      isDescOrSpec === 2 && 'bg-[#f5f5f5] dark:bg-slate-900'
                     } text-sm rounded-lg transition-all ease-in delay-75 border border-transparent  hover:border-gray-300`}
                   >
                     Specification
@@ -215,7 +218,7 @@ const ProductDetails = () => {
           </div>
         </div>
         {/* display delivery details */}
-        <div className="md:w-1/3 md:mt-0 my-4 w-full md:h-auto h-10 ">
+        <div className="md:w-1/3 md:mt-0 my-4 w-full h-full ">
           <div className="w-full h-auto p-2 bg-slate-50 border dark:bg-slate-800 border-gray-300 dark:border-gray-500 rounded-lg">
             <div className="w-full flex items-center justify-between">
               <h2 className="text-sm font-medium">Ship to</h2>
@@ -261,9 +264,12 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <button className="text-xs w-[30%] py-1 px-2 border rounded-md dark:border-gray-500 mt-3">
-                View shop
-              </button>
+              <Link
+                href="/sellerspage/"
+                className="text-xs w-[30%] py-1 px-2 border rounded-md dark:border-gray-500 mt-3"
+              >
+                <button className="text-xs w-full ">View shop</button>
+              </Link>
               <button className="text-xs w-[20%] py-1 px-2 border rounded-md dark:border-gray-500 mt-3">
                 Follow
               </button>
@@ -279,8 +285,8 @@ const ProductDetails = () => {
           <div
             className={
               isDescOrSpec === 1
-                ? "block transition-all ease-in delay-75"
-                : "hidden transition-all ease-in delay-75"
+                ? 'block transition-all ease-in delay-75'
+                : 'hidden transition-all ease-in delay-75'
             }
           >
             <Descriptions />
@@ -288,8 +294,8 @@ const ProductDetails = () => {
           <div
             className={
               isDescOrSpec === 2
-                ? "block transition-all ease-in delay-75"
-                : "hidden transition-all ease-in delay-75"
+                ? 'block transition-all ease-in delay-75'
+                : 'hidden transition-all ease-in delay-75'
             }
           >
             <Specification />
@@ -310,7 +316,7 @@ const ProductDetails = () => {
         />
       )}
     </div>
-  );
-};
+  )
+}
 
 export default ProductDetails;

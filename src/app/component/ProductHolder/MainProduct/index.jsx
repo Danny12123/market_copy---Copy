@@ -7,14 +7,17 @@ import { RiHeart2Fill, RiHeartLine } from "@remixicon/react";
 import { RiStarFill, RiStarHalfLine } from "@remixicon/react";
 import Link from "next/link";
 
-const MainProduct = () => {
-  const [isLiked, setIsLiked] = useState(false);
-  const handelLike = () => setIsLiked(!isLiked);
+const MainProduct = ({ product }) => {
+  const [isLiked, setIsLiked] = useState(false)
+  const handelLike = () => setIsLiked(!isLiked)
   return (
     <div className="w-full h-auto hover:dark:bg-slate-900 transition-all ease-in delay-75 rounded hover:shadow p-2 cursor-pointer">
-      <div className="w-full h-[20vh] [375px]:h-[20vh] md:h-[22vh] 2xl:h-[16vh] rounded-lg relative border border-[#eee]">
+      <div className="w-full h-[20vh] [375px]:h-[20vh] md:h-[21vh] xl:h-[22vh] rounded-lg relative border border-[#eee]">
         <Link href="/detail/">
-          <Image src={hero1} className="w-full h-full rounded-lg" />
+          <Image
+            src={product?.images[0]}
+            className="w-full h-full rounded-lg"
+          />
         </Link>
         <div className=" absolute top-2 right-2" onClick={handelLike}>
           {/* <Image
@@ -52,13 +55,16 @@ const MainProduct = () => {
         <div className="md:flex justify-between items-center md:mt-2 mt-1">
           <div className="flex items-baseline">
             <h3 className="mb:text-xl text-lg font-black">
-              <span className="text-sm font-normal">Ghc</span>120.00
+              <span className="text-sm font-normal">Ghc</span>
+              {product?.amount}
             </h3>
             <p className="line-through text-[10px] text-gray-400">Ghc20.00</p>
           </div>
-          <h6 className="text-xs font-semibold text-right md:mt-2 mt-0 text-red-500 italic">
-            Negotiable
-          </h6>
+          {product?.negotiate === true && (
+            <h6 className="text-xs font-semibold text-right md:mt-2 mt-0 text-red-500 italic">
+              Negotiable
+            </h6>
+          )}
         </div>
       </Link>
       {/* <div className="flex items-center">
@@ -66,7 +72,7 @@ const MainProduct = () => {
         <button>Buy now</button>
       </div> */}
     </div>
-  );
-};
+  )
+}
 
 export default MainProduct;

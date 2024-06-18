@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
 
 const CarouselBanner = ({ slider }) => {
   const [imageToShow, setImageToShow] = useState(0)
@@ -25,17 +26,19 @@ const CarouselBanner = ({ slider }) => {
       imageToShow === slider.length - 1 ? 0 : imageToShow + 1,
     )
   return (
-    <Carousel plugins={[plugin.current]} className="w-full ">
+    <Carousel plugins={[plugin.current]} className="w-full h-full">
       <CarouselContent className="-ml-1">
         {slider.map((img, index) => (
-          <CarouselItem key={index} className="pl-1 basis-1/1">
-            <Image
-              src={img}
-              alt="Banner"
-              width={100}
-              height={100}
-              className="w-full h-full"
-            />
+          <CarouselItem key={index} className="pl-1 basis-1/1 w-full h-full">
+            <Card>
+              <Image
+                src={img}
+                alt="Banner"
+                width={100}
+                height={100}
+                className="w-full h-full rounded-lg"
+              />
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>

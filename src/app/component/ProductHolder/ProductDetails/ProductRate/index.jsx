@@ -3,7 +3,7 @@ import { RiStarFill, RiStarHalfLine, RiCheckFill } from "@remixicon/react";
 
 const ProductRateDetails = () => {
   return (
-    <div className="w-full h-auto p-3" id="rate">
+    <div className="w-full h-auto" id="rate">
       <div className="mb-2">
         <h2 className="text-lg font-medium">Customer Reviews (200)</h2>
         <hr className="my-2" />
@@ -48,7 +48,7 @@ const ProductRateDetails = () => {
           </div>
           <div
             className="w-full h-[27vh] overflow-y-auto"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             s
           >
             <div className="w-full h-auto  flex items-center justify-between">
@@ -127,12 +127,12 @@ const ProductRateDetails = () => {
           </div>
         </div>
         <div className="md:w-1/3 md:mt-0 my-4 w-full md:h-auto h-10">
-          {" "}
+          {' '}
           Top product...
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default ProductRateDetails;
