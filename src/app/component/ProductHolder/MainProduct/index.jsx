@@ -12,7 +12,7 @@ const MainProduct = ({ product }) => {
   const handelLike = () => setIsLiked(!isLiked)
   return (
     <div className="w-full h-auto hover:dark:bg-slate-900 transition-all ease-in delay-75 rounded hover:shadow p-2 cursor-pointer">
-      <div className="w-full h-[20vh] [375px]:h-[20vh] md:h-[21vh] xl:h-[22vh] rounded-lg relative border border-[#eee]">
+      <div className="w-full h-[20vh] [375px]:h-[20vh] md:h-[31vh] 3xl:h-[22vh] rounded-lg relative border border-[#eee]">
         <Link href="/detail/">
           <Image
             src={product?.images[0]}
