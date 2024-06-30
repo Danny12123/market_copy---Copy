@@ -11,6 +11,8 @@ import { RiHeart2Fill, RiHeartLine } from "@remixicon/react";
 import { RiStarFill, RiStarHalfLine } from "@remixicon/react";
 import MainProduct from "../ProductHolder/MainProduct";
 import { products } from '@/app/utilites/products'
+
+
 const AllProduct = () => {
   const [isLiked, setIsLiked] = useState(false)
   const handelLike = () => setIsLiked(!isLiked)
