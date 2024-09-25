@@ -10,7 +10,7 @@ const ApparatusModal = ({ isModal, setIsModal }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [location, setLocation] = useState('')
-  const [available, setAvailable] = useState('')
+  const [available, setAvailable] = useState(0)
   const [image, setImage] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -33,13 +33,26 @@ const ApparatusModal = ({ isModal, setIsModal }) => {
       }
 
       // Add document to Firestore
-      await addDoc(collection(db, 'apparatus'), {
+      // await addDoc(collection(db, 'apparatus'), {
+      //   name,
+      //   description,
+      //   location,
+      //   available,
+      //   imageUrl,
+      // })
+      let apparatus = JSON.parse(localStorage.getItem('apparatus')) || []
+
+      // Add new apparatus to the array
+      apparatus.push({
         name,
         description,
         location,
         available,
         imageUrl,
       })
+
+      // Save updated apparatus array to localStorage
+      localStorage.setItem('apparatus', JSON.stringify(apparatus))
 
       alert('Apparatus added successfully!')
       setName('')

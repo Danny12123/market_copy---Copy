@@ -10,9 +10,11 @@ import ApparatusModal from '@/app/component/Modal/ApparatusModal'
 import { db } from '@/app/config'
 import { getDocs, collection } from 'firebase/firestore'
 import ViewApparatusModal from '@/app/component/Modal/ViewApparatusModal'
+import SummaryModal from '@/app/component/Modal/Summary'
 
 const Home = () => {
   const [isModal, setIsModal] = useState(false)
+  const [isSummary, setIsSummary] = useState(false)
   const [apparatuses, setApparatuses] = useState([])
   const [getAllIsLoading, setGetAllIsLoading] = useState(true)
   const [isBigModal, setIsBigModal] = useState(false)
@@ -27,12 +29,14 @@ const Home = () => {
   useEffect(() => {
     const fetchApparatuses = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'apparatus'))
-        const apparatusList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setApparatuses(apparatusList)
+        const storedApparatus = localStorage.getItem('apparatus')
+        const apparatusData = JSON.parse(storedApparatus)
+        // const querySnapshot = await getDocs(collection(db, 'apparatus'))
+        // const apparatusList = querySnapshot.docs.map((doc) => ({
+        //   id: doc.id,
+        //   ...doc.data(),
+        // }))
+        setApparatuses(apparatusData)
         setGetAllIsLoading(false)
       } catch (error) {
         console.error('Error fetching apparatuses: ', error)
@@ -40,7 +44,8 @@ const Home = () => {
     }
 
     fetchApparatuses()
-  }, [])
+  }, [isModal])
+  // console.log(apparatuses)
 
   if (getAllIsLoading) {
     return <p>Loading...</p>
@@ -62,12 +67,20 @@ const Home = () => {
       <div className="w-full h-auto mt-10 px-10">
         <div className="w-full flex items-center justify-between">
           <h1 className="text-blue-500 text-base">Latest</h1>
-          <button
-            onClick={() => setIsModal(!isModal)}
-            className="w-fit py-1 px-5 text-xs border-2 border-[#eee] hover:bg-[#f5f5f5f5] hover:shadow  rounded-md"
-          >
-            Add apparatus
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsSummary(!isSummary)}
+              className="w-fit py-1 px-5 text-xs border-2 border-[#eee] hover:bg-[#f5f5f5f5] hover:shadow  rounded-md"
+            >
+              Summary
+            </button>
+            <button
+              onClick={() => setIsModal(!isModal)}
+              className="w-fit py-1 px-5 text-xs border-2 border-[#eee] hover:bg-[#f5f5f5f5] hover:shadow  rounded-md"
+            >
+              Add apparatus
+            </button>
+          </div>
         </div>
         <hr className="my-3" />
         <div className="w-full">
@@ -100,6 +113,11 @@ const Home = () => {
         </div>
       </div>
       <ApparatusModal setIsModal={setIsModal} isModal={isModal} />
+      <SummaryModal
+        setIsSummary={setIsSummary}
+        isSummary={isSummary}
+        apparatuses={apparatuses}
+      />
       <ViewApparatusModal
         setIsBigModal={setIsBigModal}
         isBigModal={isBigModal}

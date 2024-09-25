@@ -12,7 +12,7 @@ const ViewApparatusModal = ({ isBigModal, setIsBigModal, selectedItem }) => {
         onClick={() => setIsBigModal(false)}
         className="w-full h-full absolute top-0 left-0"
       ></div>
-      <div className="rounded-lg w-full md:w-[480px] h-fit p-5 bg-white z-[1000] flex items-center justify-center">
+      <div className="rounded-lg w-full md:w-[480px] h-auto p-5 bg-white z-[1000] flex items-center justify-center">
         <div className="w-full h-auto">
           <div className="w-[150px] h-[150px] object-cover flex items-center justify-center">
             <Image
@@ -25,7 +25,11 @@ const ViewApparatusModal = ({ isBigModal, setIsBigModal, selectedItem }) => {
           </div>
           <div className="w-full h-auto my-3">
             <h1 className="text-sm font-medium">{selectedItem?.name}</h1>
-            <p className="text-xs">{selectedItem?.description}</p>
+            <h1 className="text-sm ">
+              Description : {selectedItem?.description}
+            </h1>
+            <p className="text-sm">Location : {selectedItem?.location}</p>
+            <p className="text-sm">Available : {selectedItem?.available}</p>
           </div>
         </div>
       </div>

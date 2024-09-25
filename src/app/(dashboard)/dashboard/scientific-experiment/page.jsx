@@ -19,12 +19,14 @@ const ScientificExperiment = () => {
   useEffect(() => {
     const fetchApparatuses = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'experiment'))
-        const apparatusList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setApparatuses(apparatusList)
+        // const querySnapshot = await getDocs(collection(db, 'experiment'))
+        // const apparatusList = querySnapshot.docs.map((doc) => ({
+        //   id: doc.id,
+        //   ...doc.data(),
+        // }))
+        const storedApparatus = localStorage.getItem('experiment')
+        const apparatusData = JSON.parse(storedApparatus)
+        setApparatuses(apparatusData)
         setGetAllIsLoading(false)
       } catch (error) {
         console.error('Error fetching apparatuses: ', error)
@@ -32,7 +34,8 @@ const ScientificExperiment = () => {
     }
 
     fetchApparatuses()
-  }, [])
+  }, [isAdd])
+  console.log(apparatuses)
 
   if (getAllIsLoading) {
     return <p>Loading...</p>

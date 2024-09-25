@@ -23,7 +23,20 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
       setLoading(true)
 
       // Add document to Firestore
-      await addDoc(collection(db, 'experiment'), {
+      // await addDoc(collection(db, 'experiment'), {
+      //   name,
+      //   hypothesis,
+      //   independentVariable,
+      //   dependentVariable,
+      //   controlGroup,
+      //   materials,
+      //   controlledVariable,
+      //   procedure,
+      // })
+      let apparatus = JSON.parse(localStorage.getItem('experiment')) || []
+
+      // Add new apparatus to the array
+      apparatus.push({
         name,
         hypothesis,
         independentVariable,
@@ -33,6 +46,9 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
         controlledVariable,
         procedure,
       })
+
+      // Save updated apparatus array to localStorage
+      localStorage.setItem('experiment', JSON.stringify(apparatus))
 
       alert('Experiment added successfully!')
       setName('')
