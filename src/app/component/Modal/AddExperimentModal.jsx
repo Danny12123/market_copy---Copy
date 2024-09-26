@@ -139,7 +139,7 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label>Control Group</label>
+              <label>Procedure</label>
               <Textarea
                 type="text"
                 value={controlGroup}
@@ -148,7 +148,7 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label>Procedure</label>
+              <label>Out come</label>
               <Textarea
                 type="text"
                 value={procedure}

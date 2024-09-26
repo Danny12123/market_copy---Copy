@@ -79,7 +79,7 @@ const ScientificExperiment = () => {
 
           <Accordion type="single" collapsible className="w-full">
             {apparatuses?.map((item, index) => (
-              <AccordionItem value={item?.id} key={index}>
+              <AccordionItem value={index} key={index}>
                 <AccordionTrigger>{item?.name}</AccordionTrigger>
                 <AccordionContent>
                   <ul>
@@ -96,7 +96,7 @@ const ScientificExperiment = () => {
                       <div className="text-xs">{item?.dependentVariable}</div>
                     </li>
                     <li className="my-2">
-                      <h1 className="text-sm">Control Group</h1>
+                      <h1 className="text-sm">Procedure</h1>
                       <div className="text-xs">{item?.controlGroup}</div>
                     </li>
                     <li className="my-2">
@@ -105,7 +105,7 @@ const ScientificExperiment = () => {
                     </li>
 
                     <li className="my-2">
-                      <h1 className="text-sm">Procedure</h1>
+                      <h1 className="text-sm">Out come</h1>
                       <div className="text-xs">{item?.procedure}</div>{' '}
                     </li>
                   </ul>
