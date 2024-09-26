@@ -1,4 +1,5 @@
 'use client'
+
 import AddExperimentModal from '@/app/component/Modal/AddExperimentModal'
 import { useEffect, useState } from 'react'
 import {
@@ -14,7 +15,7 @@ const ScientificExperiment = () => {
   const [isItemSelected, setIsItemSelected] = useState(false)
   const [isAdd, setIsAdd] = useState(false)
   const [apparatuses, setApparatuses] = useState([])
-  const [getAllIsLoading, setGetAllIsLoading] = useState(true)
+  const [getAllIsLoading, setGetAllIsLoading] = useState(false)
 
   useEffect(() => {
     const fetchApparatuses = async () => {
@@ -24,10 +25,17 @@ const ScientificExperiment = () => {
         //   id: doc.id,
         //   ...doc.data(),
         // }))
-        const storedApparatus = localStorage.getItem('experiment')
-        const apparatusData = JSON.parse(storedApparatus)
-        setApparatuses(apparatusData)
-        setGetAllIsLoading(false)
+        if (typeof window !== 'undefined') {
+          setGetAllIsLoading(true)
+          const storedApparatus = localStorage.getItem('experiment')
+          if (storedApparatus) {
+            const apparatusData = JSON.parse(storedApparatus)
+            setApparatuses(apparatusData)
+            setGetAllIsLoading(false)
+          } else {
+            setGetAllIsLoading(false)
+          }
+        }
       } catch (error) {
         console.error('Error fetching apparatuses: ', error)
       }
@@ -35,7 +43,7 @@ const ScientificExperiment = () => {
 
     fetchApparatuses()
   }, [isAdd])
-  console.log(apparatuses)
+  // console.log(apparatuses)
 
   if (getAllIsLoading) {
     return <p>Loading...</p>

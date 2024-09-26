@@ -60,12 +60,15 @@ const SideBar = ({ children }) => {
     }
   }, [isSmallScreen])
   const [email, setEmail] = useState('')
-  const text = localStorage.getItem('userEmail')
   useEffect(() => {
-    if (text) {
-      setEmail(JSON.parse(text))
+    if (typeof window !== 'undefined') {
+      const text = localStorage.getItem('userEmail')
+      if (text) {
+        const data = JSON.parse(text)
+        setEmail(data)
+      }
     }
-  }, [text])
+  }, [])
   return (
     <div className="w-full min-h-screen bg-[#fff] flex flex-col sm:flex-row relative">
       <div

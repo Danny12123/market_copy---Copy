@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import SideBar from '../../component/SideBar'
 import TopBar from '@/app/component/TopBar'
@@ -8,7 +10,7 @@ const DashboardLayOut = ({ children }) => {
     <main>
       <TopBar />
       <SidebarProvider>
-        <SideBar children={children} />
+        <SideBar>{children}</SideBar>
       </SidebarProvider>
     </main>
   )

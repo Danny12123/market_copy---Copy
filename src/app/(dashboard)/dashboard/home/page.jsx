@@ -16,7 +16,7 @@ const Home = () => {
   const [isModal, setIsModal] = useState(false)
   const [isSummary, setIsSummary] = useState(false)
   const [apparatuses, setApparatuses] = useState([])
-  const [getAllIsLoading, setGetAllIsLoading] = useState(true)
+  const [getAllIsLoading, setGetAllIsLoading] = useState(false)
   const [isBigModal, setIsBigModal] = useState(false)
   const [selectedItem, setSelectedItem] = useState(null)
 
@@ -29,16 +29,24 @@ const Home = () => {
   useEffect(() => {
     const fetchApparatuses = async () => {
       try {
-        const storedApparatus = localStorage.getItem('apparatus')
-        const apparatusData = JSON.parse(storedApparatus)
-        // const querySnapshot = await getDocs(collection(db, 'apparatus'))
-        // const apparatusList = querySnapshot.docs.map((doc) => ({
-        //   id: doc.id,
-        //   ...doc.data(),
-        // }))
-        setApparatuses(apparatusData)
-        setGetAllIsLoading(false)
+        if (typeof window !== 'undefined') {
+          setGetAllIsLoading(true)
+          const storedApparatus = localStorage.getItem('apparatus')
+          if (storedApparatus) {
+            const apparatusData = JSON.parse(storedApparatus)
+            // const querySnapshot = await getDocs(collection(db, 'apparatus'))
+            // const apparatusList = querySnapshot.docs.map((doc) => ({
+            //   id: doc.id,
+            //   ...doc.data(),
+            // }))
+            setApparatuses(apparatusData)
+            setGetAllIsLoading(false)
+          } else {
+            setGetAllIsLoading(false)
+          }
+        }
       } catch (error) {
+        setGetAllIsLoading(false)
         console.error('Error fetching apparatuses: ', error)
       }
     }

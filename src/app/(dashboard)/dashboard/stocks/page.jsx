@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react'
 import Image from 'next/image'
 import Pic1 from '../../../../../public/image/b1.png'
@@ -22,8 +23,9 @@ const Apparatus = () => {
               <div className="w-[100%] h-[40vh] object-cover">
                 <Image
                   src={Pic1}
-                  width={100}
-                  height={100}
+                  width={7000}
+                  height={7000}
+                  alt="pic"
                   className="w-full h-full"
                 />
               </div>
