@@ -22,7 +22,7 @@ const TopBar = () => {
             Wesly Grammar Senior High School
           </h4>
         </div>
-        <div>
+        {/* <div>
           <div className="flex items-center bg-[#fff]  rounded-full gap-2">
             <input
               type="text"
@@ -38,7 +38,7 @@ const TopBar = () => {
         <IoMdSettings className='text-lg text-[#fff]' />
         <RiNotification4Fill className='text-lg text-[#fff]' />
         <FaUser className='text-lg text-[#fff]' />
-        </div>
+        </div> */}
       </div>
     </div>
   )

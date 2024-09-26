@@ -19,10 +19,10 @@ const Links = [
     name: 'Scientific Experiment',
     path: '/dashboard/scientific-experiment',
   },
-  {
-    name: 'Stocks',
-    path: '/dashboard/stocks',
-  },
+  // {
+  //   name: 'Stocks',
+  //   path: '/dashboard/stocks',
+  // },
 
   // { name: 'Settings', path: '/dashboard/settings' },
 ]
