@@ -22,6 +22,7 @@ const ChemicalStock = ({ setIsApparatusBox, isApparatusBox }) => {
 
       // Add new apparatus to the array
       apparatus.push({
+        id: Math.random(),
         name_st,
         model,
         manufacturer,

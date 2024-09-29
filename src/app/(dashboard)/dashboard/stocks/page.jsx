@@ -6,6 +6,7 @@ import Pic1 from '../../../../../public/image/b1.png'
 import StockItemsC from '@/app/component/Modal/StockItemsC'
 import { format, render, cancel, register } from 'timeago.js'
 import ChemicalStock from '@/app/component/Modal/ChemicalStock'
+import { MdDeleteForever } from 'react-icons/md'
 
 const Apparatus = () => {
   const [isStocks, setIsStocks] = useState(false)
@@ -15,6 +16,7 @@ const Apparatus = () => {
   const [apparatuses, setApparatuses] = useState([])
   const [stock_apparatuses, setStock_Apparatuses] = useState([])
   const [getAllIsLoading, setGetAllIsLoading] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null)
 
   useEffect(() => {
     const fetchApparatuses = async () => {
@@ -40,7 +42,47 @@ const Apparatus = () => {
 
     fetchApparatuses()
   }, [isStocks, isApparatusBox])
-  // console.log(apparatuses)
+
+  const handleDelete = () => {
+    // Get the stored apparatus from localStorage
+    const storedApparatus =
+      JSON.parse(localStorage.getItem('chemical_stock')) || []
+
+    // Find the index of the selected item in the stored chemical_stock
+    const selectedItemIndex = storedApparatus.findIndex(
+      (item) => item?.id === selectedItem?.id,
+    )
+
+    // Remove the selected item from the stored apparatus
+    storedApparatus.splice(selectedItemIndex, 1)
+
+    // Update localStorage with the updated apparatus
+    localStorage.setItem('chemical_stock', JSON.stringify(storedApparatus))
+
+    // Close the modal
+    // setIsBigModal(false)
+    window.location.reload()
+  }
+
+  const handleDelete2 = () => {
+    // Get the stored apparatus from localStorage
+    const storedApparatus = JSON.parse(localStorage.getItem('stock')) || []
+
+    // Find the index of the selected item in the stored stock
+    const selectedItemIndex = storedApparatus.findIndex(
+      (item) => item?.id === selectedItem?.id,
+    )
+
+    // Remove the selected item from the stored apparatus
+    storedApparatus.splice(selectedItemIndex, 1)
+
+    // Update localStorage with the updated apparatus
+    localStorage.setItem('stock', JSON.stringify(storedApparatus))
+
+    // Close the modal
+    // setIsBigModal(false)
+    window.location.reload()
+  }
 
   if (getAllIsLoading) {
     return <p>Loading...</p>
@@ -66,15 +108,22 @@ const Apparatus = () => {
           {/* <h3 className="text-sm">Records</h3> */}
         </div>
       </div>
-      <div className="w-full h-full  gap-5 ">
+      <div className="w-full h-full flex flex-col gap-3 ">
         {apparatuses?.map((apparatus, index) => (
           <div
             key={index}
+            onClick={() => setSelectedItem(apparatus)}
             className="w-full h-auto border border-[#eee] rounded-lg p-3"
           >
-            <div>
-              <h1 className="text-sm mb-1">Item</h1>
-              <p className="text-xs">{apparatus?.chemical}</p>
+            <div className="w-full flex justify-between">
+              <div>
+                <h1 className="text-sm mb-1">Item</h1>
+                <p className="text-xs">{apparatus?.chemical}</p>
+              </div>
+              <MdDeleteForever
+                onClick={handleDelete}
+                className="text-xl cursor-pointer hover:text-blue-600"
+              />
             </div>
             <div className="w-full h-auto bg-[#fff] rounded-lg shadow mt-3 p-5">
               <div className="w-full flex items-center justify-between">
@@ -109,11 +158,18 @@ const Apparatus = () => {
         {stock_apparatuses?.map((apparatus, index) => (
           <div
             key={index}
+            onClick={() => setSelectedItem(apparatus)}
             className="w-full h-auto border border-[#eee] rounded-lg p-3"
           >
-            <div>
-              <h1 className="text-sm mb-1">Item</h1>
-              <p className="text-xs">{apparatus?.name_st}</p>
+            <div className="w-full flex justify-between">
+              <div>
+                <h1 className="text-sm mb-1">Item</h1>
+                <p className="text-xs">{apparatus?.name_st}</p>
+              </div>
+              <MdDeleteForever
+                onClick={handleDelete2}
+                className="text-xl cursor-pointer hover:text-blue-600"
+              />
             </div>
             <div className="w-full h-auto bg-[#fff] rounded-lg shadow mt-3 p-5">
               <div className="w-full flex items-center justify-between">

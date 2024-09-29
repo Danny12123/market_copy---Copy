@@ -38,6 +38,7 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
 
       // Add new apparatus to the array
       apparatus.push({
+        id: Math.random(),
         name,
         hypothesis,
         independentVariable,
@@ -53,6 +54,12 @@ const AddExperimentModal = ({ setIsAdd, isAdd }) => {
 
       alert('Experiment added successfully!')
       setName('')
+      setHypothesis('')
+      setIndependentVariable('')
+      setDependentVariable('')
+      setControlGroup('')
+      setMaterials('')
+      setControlledVariable('')
 
       setLoading(false)
       setIsAdd(false)

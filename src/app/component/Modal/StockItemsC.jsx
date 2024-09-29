@@ -22,6 +22,7 @@ const StockItemsC = ({ setIsStocks, isStocks }) => {
 
       // Add new apparatus to the array
       apparatus.push({
+        id: Math.random(),
         chemical,
         cas,
         quantity,

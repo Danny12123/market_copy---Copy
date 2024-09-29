@@ -44,6 +44,7 @@ const ApparatusModal = ({ isModal, setIsModal }) => {
 
       // Add new apparatus to the array
       apparatus.push({
+        id: Math.random(),
         name,
         description,
         location,
